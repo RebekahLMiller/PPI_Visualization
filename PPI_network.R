@@ -9,7 +9,6 @@ library("plyr")
 library("tidyverse")
 library("igraph")
 library("ggraph")
-library("RColorBrewer")
 
 
 ## DEFINE FUNCTIONS ------------------------------------------------------------
