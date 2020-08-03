@@ -20,13 +20,13 @@ EntrezGene_ID_A	EntrezGene_ID_B	COF_Name_A	COF_Synonyms_A	Complex_A	Core_or_Vari
 53615	11016	MBD3	MBD3	NuRD	NA	ATF7	bZIP	Known motif	Monomer or homomultimer
 55758	11023	CoREST3	CoREST3;KIAA1343;RCOR3	CoREST	NA	VAX1	Homeodomain	Known motif	Monomer or homomultimer
 10445	11143	MCRS1	MCRS1;INO80Q;MSP58	INO80	ACCESSORY	KAT7	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
-53615	11179	MBD3	MBD3	NuRD	NA	ZNF277	C2H2 ZF; BED ZF	Likely to be sequence specific TF	Monomer or homomultimer
+53615	11179	MBD3	MBD3	NuRD	NA	ZNF277	C2H2 ZF;BED ZF	Likely to be sequence specific TF	Monomer or homomultimer
 10919	11278	EHMT2	EHMT2;G9a	NA	NA	KLF12	C2H2 ZF	Known motif	Monomer or homomultimer
-9643	11281	MORF4L2	MORF4L2;MSL3-2;MRGX	NuA4	NA	POU6F2	Homeodomain; POU	Known motif	Monomer or homomultimer
-892	11281	CCNC	CCNC;SRB11	Mediator 	CORE	POU6F2	Homeodomain; POU	Known motif	Monomer or homomultimer
-84217	11281	ZMYND12	ZMYND12	NA	NA	POU6F2	Homeodomain; POU	Known motif	Monomer or homomultimer
-23569	11281	PAD4	PAD4;PADI4;PADI5;PDI5	NA	NA	POU6F2	Homeodomain; POU	Known motif	Monomer or homomultimer
-7158	11281	TP53BP1	TP53BP1	NA	NA	POU6F2	Homeodomain; POU	Known motif	Monomer or homomultimer
+9643	11281	MORF4L2	MORF4L2;MSL3-2;MRGX	NuA4	NA	POU6F2	Homeodomain;POU	Known motif	Monomer or homomultimer
+892	11281	CCNC	CCNC;SRB11	Mediator 	CORE	POU6F2	Homeodomain;POU	Known motif	Monomer or homomultimer
+84217	11281	ZMYND12	ZMYND12	NA	NA	POU6F2	Homeodomain;POU	Known motif	Monomer or homomultimer
+23569	11281	PAD4	PAD4;PADI4;PADI5;PDI5	NA	NA	POU6F2	Homeodomain;POU	Known motif	Monomer or homomultimer
+7158	11281	TP53BP1	TP53BP1	NA	NA	POU6F2	Homeodomain;POU	Known motif	Monomer or homomultimer
 6015	114026	RING1	RING1;RNF1	PRC1	CORE	ZIM3	C2H2 ZF	Known motif	Monomer or homomultimer
 83444	116115	INO80B	HMGA1L4;PAPA1;ZNHIT4	INO80	ACCESSORY	ZNF526	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
 10524	116115	KAT5	KAT5;TIP60	NuA4	NA	ZNF526	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
@@ -55,7 +55,7 @@ EntrezGene_ID_A	EntrezGene_ID_B	COF_Name_A	COF_Synonyms_A	Complex_A	Core_or_Vari
 6602	147687	SMARCD1	SMARCD1;BAF60A	BAF	ACCESSORY	ZNF417	C2H2 ZF	Known motif	Monomer or homomultimer
 23338	147687	JADE2	JADE2;PHF15	HBO1	NA	ZNF417	C2H2 ZF	Known motif	Monomer or homomultimer
 6871	147687	TADA2A	TADA2A;ADA2A	PCAF;ATAC	NA	ZNF417	C2H2 ZF	Known motif	Monomer or homomultimer
-9792	147807	SERTAD2	SERTAD2	NA	NA	ZNF524	C2H2 ZF; AT hook	Known motif	Monomer or homomultimer
+9792	147807	SERTAD2	SERTAD2	NA	NA	ZNF524	C2H2 ZF;AT hook	Known motif	Monomer or homomultimer
 84289	152815	ING5	ING5;p28ING5	HBO1;MOZ;MORF	NA	THAP6	THAP finger	Likely to be sequence specific TF	Monomer or homomultimer
 6871	163050	TADA2A	TADA2A;ADA2A	PCAF;ATAC	NA	ZNF564	C2H2 ZF	Known motif	Monomer or homomultimer
 55758	163087	CoREST3	CoREST3;KIAA1343;RCOR3	CoREST	NA	ZNF383	C2H2 ZF	Known motif	Monomer or homomultimer
@@ -118,7 +118,7 @@ EntrezGene_ID_A	EntrezGene_ID_B	COF_Name_A	COF_Synonyms_A	Complex_A	Core_or_Vari
 84217	343930	ZMYND12	ZMYND12	NA	NA	MSGN1	bHLH	Known motif	Monomer or homomultimer
 29946	343930	SERTAD3	SERTAD3	NA	NA	MSGN1	bHLH	Known motif	Monomer or homomultimer
 84217	344191	ZMYND12	ZMYND12	NA	NA	EVX2	Homeodomain	Known motif	Monomer or homomultimer
-84217	390874	ZMYND12	ZMYND12	NA	NA	ONECUT3	CUT; Homeodomain	Known motif	Monomer or homomultimer
+84217	390874	ZMYND12	ZMYND12	NA	NA	ONECUT3	CUT;Homeodomain	Known motif	Monomer or homomultimer
 84217	402381	ZMYND12	ZMYND12	NA	NA	SOHLH1	bHLH	Likely to be sequence specific TF	Obligate heteromer
 11022	403341	TDRKH	TDRKH	NA	NA	ZBTB34	C2H2 ZF	Inferred motif	Monomer or homomultimer
 84217	406	ZMYND12	ZMYND12	NA	NA	ARNTL	bHLH	Known motif	Monomer or homomultimer
@@ -360,5 +360,5 @@ EntrezGene_ID_A	EntrezGene_ID_B	COF_Name_A	COF_Synonyms_A	Complex_A	Core_or_Vari
 83444	9580	INO80B	HMGA1L4;PAPA1;ZNHIT4	INO80	ACCESSORY	SOX13	HMG/Sox	Known motif	Monomer or homomultimer
 7158	9586	TP53BP1	TP53BP1	NA	NA	CREB5	bZIP	Known motif	Monomer or homomultimer
 56946	9726	EMSY	EMSY;C11orf30	Sin3	ACCESSORY	ZNF646	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
-53335	9841	BCL11A	BCL11A;CTIP1;EVI9;KIAA1809;ZNF856	BAF	ACCESSORY	ZBTB24	C2H2 ZF; AT hook	Likely to be sequence specific TF	Monomer or homomultimer
+53335	9841	BCL11A	BCL11A;CTIP1;EVI9;KIAA1809;ZNF856	BAF	ACCESSORY	ZBTB24	C2H2 ZF;AT hook	Likely to be sequence specific TF	Monomer or homomultimer
 23028	9880	KDM1A	LSD1;KIAA0601;AOF2;KDM1;KDM1A	CoREST	CORE	ZBTB39	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer

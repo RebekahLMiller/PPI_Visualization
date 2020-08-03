@@ -18,23 +18,23 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 547655	O88907	PIAS1_MOUSE	Pias1	D3YYC3	D3YYC3_MOUSE	Setdb1	1	1	1	0	1	Pias1	NA	E3 SUMO ligase	MBD	Known motif	Low specificity DNA-binding protein
 551783	P20263	PO5F1_MOUSE	Pou5f1	D3YYC3	D3YYC3_MOUSE	Setdb1	1	1	1	0	2	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	MBD	Known motif	Low specificity DNA-binding protein
 548813	Q9JL10	SRTD1_MOUSE	Sertad1	D3Z4R4	D3Z4R4_MOUSE	Nkx6-2	1	1	1	0	1	Sertad1	NA	NA	Homeodomain	Known motif	Monomer or homomultimer
-547699	Q91ZW3	SMCA5_MOUSE	Smarca5	E9Q374	E9Q374_MOUSE	Baz2a	2	2	1	0	2	Smarca5;Snf2h	CHRAC	CATALYTIC	MBD; AT hook	Likely to be sequence specific TF	Low specificity DNA-binding protein
+547699	Q91ZW3	SMCA5_MOUSE	Smarca5	E9Q374	E9Q374_MOUSE	Baz2a	2	2	1	0	2	Smarca5;Snf2h	CHRAC	CATALYTIC	MBD;AT hook	Likely to be sequence specific TF	Low specificity DNA-binding protein
 564110	Q62315	JARD2_MOUSE	Jarid2	E9Q3T6	PRD14_MOUSE	Prdm14	1	1	1	0	1	Jarid2;Jmj	PRC2.2	NA	C2H2 ZF	Known motif	Monomer or homomultimer
 380460	O70374	MTG8R_MOUSE	Cbfa2t2	E9Q3T6	PRD14_MOUSE	Prdm14	1	1	1	0	2	CBFA2T2	NA	NA	C2H2 ZF	Known motif	Monomer or homomultimer
 568515	Q9Z148	EHMT2_MOUSE	Ehmt2	E9Q624	E9Q624_MOUSE	Zfp644	1	1	1	0	1	EHMT2;G9a	NA	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
-549723	Q6DIC0	SMCA2_MOUSE	Smarca2	E9Q7E2	ARID2_MOUSE	Arid2	1	1	1	0	1	Smarca2;Baf190b;Snf2a;Snf2l2;Brm	BAF	CATALYTIC	ARID/BRIGHT; RFX	Likely to be sequence specific TF	Monomer or homomultimer
-549738	Q3TKT4	SMCA4_MOUSE	Smarca4	E9Q7E2	ARID2_MOUSE	Arid2	1	1	1	0	1	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	ARID/BRIGHT; RFX	Likely to be sequence specific TF	Monomer or homomultimer
+549723	Q6DIC0	SMCA2_MOUSE	Smarca2	E9Q7E2	ARID2_MOUSE	Arid2	1	1	1	0	1	Smarca2;Baf190b;Snf2a;Snf2l2;Brm	BAF	CATALYTIC	ARID/BRIGHT;RFX	Likely to be sequence specific TF	Monomer or homomultimer
+549738	Q3TKT4	SMCA4_MOUSE	Smarca4	E9Q7E2	ARID2_MOUSE	Arid2	1	1	1	0	1	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	ARID/BRIGHT;RFX	Likely to be sequence specific TF	Monomer or homomultimer
 549690	P20263	PO5F1_MOUSE	Pou5f1	E9Q8X5	E9Q8X5_MOUSE	Zbtb10	1	1	1	0	1	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
 374192	Q80Z64	NANOG_MOUSE	Nanog	E9Q9Y4	E9Q9Y4_MOUSE	Tet1	1	1	1	0	1	Nanog;Ecat4;Enk	NODE	NA	CxxC	Known motif	Monomer or homomultimer
 374191	Q80Z64	NANOG_MOUSE	Nanog	E9QKA2	E9QKA2_MOUSE	Esrrb	1	1	1	0	1	Nanog;Ecat4;Enk	NODE	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 374132	Q80Z64	NANOG_MOUSE	Nanog	E9QLG3	E9QLG3_MOUSE	Mga	1	1	1	0	1	Nanog;Ecat4;Enk	NODE	NA	T-box	Known motif	Monomer or homomultimer
-549692	P20263	PO5F1_MOUSE	Pou5f1	E9QMD3	E9QMD3_MOUSE	Zfhx3	1	1	1	0	1	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	C2H2 ZF; Homeodomain	Known motif	Monomer or homomultimer
+549692	P20263	PO5F1_MOUSE	Pou5f1	E9QMD3	E9QMD3_MOUSE	Zfhx3	1	1	1	0	1	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	C2H2 ZF;Homeodomain	Known motif	Monomer or homomultimer
 549693	P20263	PO5F1_MOUSE	Pou5f1	F8VPV3	F8VPV3_MOUSE	Zic2	1	1	1	0	1	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	C2H2 ZF	Known motif	Monomer or homomultimer
 568478	Q61188	EZH2_MOUSE	Ezh2	J3QPN0	J3QPN0_MOUSE	Zfp518b	2	2	1	0	2	Ezh2;Enx12	PRC2	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
 568541	P70351	EZH1_MOUSE	Ezh1	J3QPN0	J3QPN0_MOUSE	Zfp518b	1	1	1	0	1	Ezh1;Enx2	PRC2	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
 568540	Q5DW34	EHMT1_MOUSE	Ehmt1	J3QPN0	J3QPN0_MOUSE	Zfp518b	1	1	1	0	1	EHMT1;GLP	NA	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
 568512	Q9Z148	EHMT2_MOUSE	Ehmt2	J3QPN0	J3QPN0_MOUSE	Zfp518b	2	2	1	0	3	EHMT2;G9a	NA	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
-374154	Q80Z64	NANOG_MOUSE	Nanog	O08550	KMT2B_MOUSE	Kmt2b	2	2	1	0	2	Nanog;Ecat4;Enk	NODE	NA	CxxC; AT hook	Likely to be sequence specific TF	Monomer or homomultimer
+374154	Q80Z64	NANOG_MOUSE	Nanog	O08550	KMT2B_MOUSE	Kmt2b	2	2	1	0	2	Nanog;Ecat4;Enk	NODE	NA	CxxC;AT hook	Likely to be sequence specific TF	Monomer or homomultimer
 550253	Q9JHD1	KAT2B_MOUSE	Kat2b	O08580	ERR1_MOUSE	Esrra	1	1	1	0	1	Kat2b;Pcaf	PCAF	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 556317	Q9QXE7	TBL1X_MOUSE	Tbl1x	O08686	BARX2_MOUSE	Barx2	1	1	1	0	1	Tbl1;Tbl1x	NCoR;SMRT	NA	Homeodomain	Known motif	Monomer or homomultimer
 549750	Q61188	EZH2_MOUSE	Ezh2	O08785	CLOCK_MOUSE	Clock	1	1	1	0	2	Ezh2;Enx12	PRC2	NA	bHLH	Known motif	Monomer or homomultimer
@@ -198,62 +198,62 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 548720	Q61026	NCOA2_MOUSE	Ncoa2	P19785	ESR1_MOUSE	Esr1	1	1	1	0	1	Ncoa2;Grip1;Src2	SRC	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 550225	Q91VY5	KDM4B_MOUSE	Kdm4b	P19785	ESR1_MOUSE	Esr1	1	1	1	0	2	Kdm4b;Jhdm3b;Jmjd2b	NA	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 381010	Q64127	TIF1A_MOUSE	Trim24	P19785	ESR1_MOUSE	Esr1	1	1	1	0	1	Trim24;TIF1A	NA	NA	Nuclear receptor	Known motif	Monomer or homomultimer
-371025	A2A8L1	CHD5_MOUSE	Chd5	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Chd5;Kiaa0444	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371053	Q8VHR5	P66B_MOUSE	Gatad2b	P20263	PO5F1_MOUSE	Pou5f1	5	2	4	0	5	p66β;Gatad2b;p66/p68	NuRD;NODE	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193676	Q8CCI5	RYBP_MOUSE	Rybp	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	7	Rybp;Dedaf	PRC1	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552156	O54941	SMCE1_MOUSE	Smarce1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smarce1;Baf57	BAF	ACCESSORY	Homeodomain; POU	Known motif	Monomer or homomultimer
-371026	B1AR17	B1AR17_MOUSE	Chd3	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Mi-2α;Chd3	NuRD	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193672	P61965	WDR5_MOUSE	Wdr5	P20263	PO5F1_MOUSE	Pou5f1	6	3	3	0	11	Wdr5;Big;Big3	MLL	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-173188	Q80Z64	NANOG_MOUSE	Nanog	P20263	PO5F1_MOUSE	Pou5f1	9	3	6	0	16	Nanog;Ecat4;Enk	NODE	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193680	Q60973	RBBP7_MOUSE	Rbbp7	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	5	Rbbp7;Rbap46	NURF;PRC2	ACCESSORY	Homeodomain; POU	Known motif	Monomer or homomultimer
-371010	Q6PIJ4	NFRKB_MOUSE	Nfrkb	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Nfrkb	INO80	ACCESSORY	Homeodomain; POU	Known motif	Monomer or homomultimer
-371007	Q6ZPI0	JADE1_MOUSE	Jade1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Jade1;Phf17	HBO1	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371024	O88712	CTBP1_MOUSE	Ctbp1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Ctbp;Ctbp1	CoREST	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371064	Q921C3	BRWD1_MOUSE	Brwd1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	WDR9	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193642	Q61191	HCFC1_MOUSE	Hcfc1	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	5	Hcfc1	MLL1	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-372796	Q91X20	ASH2L_MOUSE	Ash2l	P20263	PO5F1_MOUSE	Pou5f1	2	2	2	0	3	Ash2l	MLL	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193640	Q6ZQ88	KDM1A_MOUSE	Kdm1a	P20263	PO5F1_MOUSE	Pou5f1	6	4	3	0	8	Kdm1a;Aof2;Kiaa0601;Lsd1	CoREST	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552097	Q69ZK6	JHD2C_MOUSE	Jmjd1c	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Jmjd1c;Jhdm2c;Kiaa1380	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552042	Q9ESU6	BRD4_MOUSE	Brd4	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	BRD4	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552154	Q9Z0H3	SNF5_MOUSE	Smarcb1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smarcb1;Baf47;Ini1;Snf5l1	BAF	CORE	Homeodomain; POU	Known motif	Monomer or homomultimer
-193679	Q3TKT4	SMCA4_MOUSE	Smarca4	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	6	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	Homeodomain; POU	Known motif	Monomer or homomultimer
-552136	Q8BX09	RBBP5_MOUSE	Rbbp5	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Rbbp5	MLL	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371059	P40201	CHD1_MOUSE	Chd1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Chd1;Chd-1	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552153	Q6DIC0	SMCA2_MOUSE	Smarca2	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smarca2;Baf190b;Snf2a;Snf2l2;Brm	BAF	CATALYTIC	Homeodomain; POU	Known motif	Monomer or homomultimer
-552176	P70399	TP53B_MOUSE	Tp53bp1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	TP53BP1	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552036	A2BH40	ARI1A_MOUSE	Arid1a	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Arid1a;Baf250;Baf250a;Osa1;Smarcf1	BAF	ACCESSORY	Homeodomain; POU	Known motif	Monomer or homomultimer
-193686	Q9R190	MTA2_MOUSE	Mta2	P20263	PO5F1_MOUSE	Pou5f1	7	4	4	0	13	Mta2;Mta1l1	NuRD;NODE	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371043	P20263	PO5F1_MOUSE	Pou5f1	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	4	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-543409	P45481	CBP_MOUSE	Crebbp	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Cbp;Crebbp	CBP	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193673	Q9CU65	ZMYM2_MOUSE	Zmym2	P20263	PO5F1_MOUSE	Pou5f1	4	3	2	0	5	Znf198;Zmym2;Zfp198	CoREST	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552160	Q8BR65	SDS3_MOUSE	Suds3	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Suds3;Sds3	Sin3	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371065	Q9Z2N8	ACL6A_MOUSE	Actl6a	P20263	PO5F1_MOUSE	Pou5f1	3	2	2	0	3	Actl6a;Baf53a	BAF	ACCESSORY	Homeodomain; POU	Known motif	Monomer or homomultimer
-552145	Q8BIH0	SP130_MOUSE	Sap130	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Sap130	Sin3	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193674	Q8C796	RCOR2_MOUSE	Rcor2	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	6	Rcor1;M-CoREST	CoREST	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371004	Q91ZW3	SMCA5_MOUSE	Smarca5	P20263	PO5F1_MOUSE	Pou5f1	3	2	2	0	3	Smarca5;Snf2h	CHRAC	CATALYTIC	Homeodomain; POU	Known motif	Monomer or homomultimer
-193683	O09106	HDAC1_MOUSE	Hdac1	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	8	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193682	P70288	HDAC2_MOUSE	Hdac2	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	6	Hdac2;Hd2;Yy1bp	Sin3;NuRD;CoREST	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371045	P54276	MSH6_MOUSE	Msh6	P20263	PO5F1_MOUSE	Pou5f1	4	3	2	0	5	MSH6	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193646	Q8BMB0	EMSY_MOUSE	Emsy	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Emsy	Sin3	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-371064	Q921C3	BRWD1_MOUSE	Brwd1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	BRWD1	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-369768	Q00899	TYY1_MOUSE	Yy1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	2	Yy1;Ucrbp	INO80	ACCESSORY	Homeodomain; POU	Known motif	Monomer or homomultimer
-193687	Q8K4B0	MTA1_MOUSE	Mta1	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	8	Mta1	NuRD;NODE	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193657	Q8CHI8	EP400_MOUSE	Ep400	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	3	p400;hDomino	NuA4	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552155	Q6PDG5	SMRC2_MOUSE	Smarcc2	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smarcc2;Baf170	BAF	CORE	Homeodomain; POU	Known motif	Monomer or homomultimer
-371048	Q6ZPV2	INO80_MOUSE	Ino80	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Ino80;Inoc1;Kiaa1259	INO80	CATALYTIC	Homeodomain; POU	Known motif	Monomer or homomultimer
-370991	Q5SVQ0	KAT7_MOUSE	Kat7	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	4	Kat7;Hbo1;Myst2	HBO1	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193678	P97496	SMRC1_MOUSE	Smarcc1	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	6	Smarcc1;Baf155;Srg3	BAF	CORE	Homeodomain; POU	Known motif	Monomer or homomultimer
-371019	Q8CHY6	P66A_MOUSE	Gatad2a	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	4	p66α;Gatad2a	NuRD;NODE	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193634	Q9Z2D8	MBD3_MOUSE	Mbd3	P20263	PO5F1_MOUSE	Pou5f1	6	3	4	0	9	Mbd3	NuRD	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552041	Q8K2F0	BRD3_MOUSE	Brd3	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	BRD3	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193638	Q61103	REQU_MOUSE	Dpf2	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	5	Dpf2;Baf45d;Req;Ubid4	BAF	ACCESSORY	Homeodomain; POU	Known motif	Monomer or homomultimer
-371000	Q64127	TIF1A_MOUSE	Trim24	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Trim24;TIF1A	NA	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552040	Q6P9L3	Q6P9L3_MOUSE	Bptf	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Bptf;Falz	NURF	ACCESSORY	Homeodomain; POU	Known motif	Monomer or homomultimer
-193685	Q6PDQ2	CHD4_MOUSE	Chd4	P20263	PO5F1_MOUSE	Pou5f1	6	4	4	0	12	Mi-2β;Chd4	NuRD	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552113	Q9WU42	NCOR2_MOUSE	Ncor2	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smrt;Ncor2;Trac;Smrte	SMRT	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552162	Q80UV9	TAF1_MOUSE	Taf1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Taf1;TafII250;p250	TFIID	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-552177	Q80X50	UBP2L_MOUSE	Ubap2l	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Ubap2l;Nice4	ATAC	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
-193681	Q924K8	MTA3_MOUSE	Mta3	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	6	Mta3	NuRD	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
+371025	A2A8L1	CHD5_MOUSE	Chd5	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Chd5;Kiaa0444	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371053	Q8VHR5	P66B_MOUSE	Gatad2b	P20263	PO5F1_MOUSE	Pou5f1	5	2	4	0	5	p66β;Gatad2b;p66/p68	NuRD;NODE	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193676	Q8CCI5	RYBP_MOUSE	Rybp	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	7	Rybp;Dedaf	PRC1	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552156	O54941	SMCE1_MOUSE	Smarce1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smarce1;Baf57	BAF	ACCESSORY	Homeodomain;POU	Known motif	Monomer or homomultimer
+371026	B1AR17	B1AR17_MOUSE	Chd3	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Mi-2α;Chd3	NuRD	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193672	P61965	WDR5_MOUSE	Wdr5	P20263	PO5F1_MOUSE	Pou5f1	6	3	3	0	11	Wdr5;Big;Big3	MLL	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+173188	Q80Z64	NANOG_MOUSE	Nanog	P20263	PO5F1_MOUSE	Pou5f1	9	3	6	0	16	Nanog;Ecat4;Enk	NODE	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193680	Q60973	RBBP7_MOUSE	Rbbp7	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	5	Rbbp7;Rbap46	NURF;PRC2	ACCESSORY	Homeodomain;POU	Known motif	Monomer or homomultimer
+371010	Q6PIJ4	NFRKB_MOUSE	Nfrkb	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Nfrkb	INO80	ACCESSORY	Homeodomain;POU	Known motif	Monomer or homomultimer
+371007	Q6ZPI0	JADE1_MOUSE	Jade1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Jade1;Phf17	HBO1	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371024	O88712	CTBP1_MOUSE	Ctbp1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Ctbp;Ctbp1	CoREST	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371064	Q921C3	BRWD1_MOUSE	Brwd1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	BRWD1	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193642	Q61191	HCFC1_MOUSE	Hcfc1	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	5	Hcfc1	MLL1	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+372796	Q91X20	ASH2L_MOUSE	Ash2l	P20263	PO5F1_MOUSE	Pou5f1	2	2	2	0	3	Ash2l	MLL	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193640	Q6ZQ88	KDM1A_MOUSE	Kdm1a	P20263	PO5F1_MOUSE	Pou5f1	6	4	3	0	8	Kdm1a;Aof2;Kiaa0601;Lsd1	CoREST	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552097	Q69ZK6	JHD2C_MOUSE	Jmjd1c	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Jmjd1c;Jhdm2c;Kiaa1380	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552042	Q9ESU6	BRD4_MOUSE	Brd4	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	BRD4	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552154	Q9Z0H3	SNF5_MOUSE	Smarcb1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smarcb1;Baf47;Ini1;Snf5l1	BAF	CORE	Homeodomain;POU	Known motif	Monomer or homomultimer
+193679	Q3TKT4	SMCA4_MOUSE	Smarca4	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	6	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	Homeodomain;POU	Known motif	Monomer or homomultimer
+552136	Q8BX09	RBBP5_MOUSE	Rbbp5	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Rbbp5	MLL	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371059	P40201	CHD1_MOUSE	Chd1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Chd1;Chd-1	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552153	Q6DIC0	SMCA2_MOUSE	Smarca2	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smarca2;Baf190b;Snf2a;Snf2l2;Brm	BAF	CATALYTIC	Homeodomain;POU	Known motif	Monomer or homomultimer
+552176	P70399	TP53B_MOUSE	Tp53bp1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	TP53BP1	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552036	A2BH40	ARI1A_MOUSE	Arid1a	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Arid1a;Baf250;Baf250a;Osa1;Smarcf1	BAF	ACCESSORY	Homeodomain;POU	Known motif	Monomer or homomultimer
+193686	Q9R190	MTA2_MOUSE	Mta2	P20263	PO5F1_MOUSE	Pou5f1	7	4	4	0	13	Mta2;Mta1l1	NuRD;NODE	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371043	P20263	PO5F1_MOUSE	Pou5f1	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	4	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+543409	P45481	CBP_MOUSE	Crebbp	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Cbp;Crebbp	CBP	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193673	Q9CU65	ZMYM2_MOUSE	Zmym2	P20263	PO5F1_MOUSE	Pou5f1	4	3	2	0	5	Znf198;Zmym2;Zfp198	CoREST	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552160	Q8BR65	SDS3_MOUSE	Suds3	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Suds3;Sds3	Sin3	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371065	Q9Z2N8	ACL6A_MOUSE	Actl6a	P20263	PO5F1_MOUSE	Pou5f1	3	2	2	0	3	Actl6a;Baf53a	BAF	ACCESSORY	Homeodomain;POU	Known motif	Monomer or homomultimer
+552145	Q8BIH0	SP130_MOUSE	Sap130	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Sap130	Sin3	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193674	Q8C796	RCOR2_MOUSE	Rcor2	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	6	Rcor1;M-CoREST	CoREST	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371004	Q91ZW3	SMCA5_MOUSE	Smarca5	P20263	PO5F1_MOUSE	Pou5f1	3	2	2	0	3	Smarca5;Snf2h	CHRAC	CATALYTIC	Homeodomain;POU	Known motif	Monomer or homomultimer
+193683	O09106	HDAC1_MOUSE	Hdac1	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	8	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193682	P70288	HDAC2_MOUSE	Hdac2	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	6	Hdac2;Hd2;Yy1bp	Sin3;NuRD;CoREST	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371045	P54276	MSH6_MOUSE	Msh6	P20263	PO5F1_MOUSE	Pou5f1	4	3	2	0	5	MSH6	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193646	Q8BMB0	EMSY_MOUSE	Emsy	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Emsy	Sin3	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+371064	Q921C3	BRWD1_MOUSE	Brwd1	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	WDR9	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+369768	Q00899	TYY1_MOUSE	Yy1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	2	Yy1;Ucrbp	INO80	ACCESSORY	Homeodomain;POU	Known motif	Monomer or homomultimer
+193687	Q8K4B0	MTA1_MOUSE	Mta1	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	8	Mta1	NuRD;NODE	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193657	Q8CHI8	EP400_MOUSE	Ep400	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	3	p400;hDomino	NuA4	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552155	Q6PDG5	SMRC2_MOUSE	Smarcc2	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smarcc2;Baf170	BAF	CORE	Homeodomain;POU	Known motif	Monomer or homomultimer
+371048	Q6ZPV2	INO80_MOUSE	Ino80	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Ino80;Inoc1;Kiaa1259	INO80	CATALYTIC	Homeodomain;POU	Known motif	Monomer or homomultimer
+370991	Q5SVQ0	KAT7_MOUSE	Kat7	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	4	Kat7;Hbo1;Myst2	HBO1	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193678	P97496	SMRC1_MOUSE	Smarcc1	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	6	Smarcc1;Baf155;Srg3	BAF	CORE	Homeodomain;POU	Known motif	Monomer or homomultimer
+371019	Q8CHY6	P66A_MOUSE	Gatad2a	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	4	p66α;Gatad2a	NuRD;NODE	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193634	Q9Z2D8	MBD3_MOUSE	Mbd3	P20263	PO5F1_MOUSE	Pou5f1	6	3	4	0	9	Mbd3	NuRD	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552041	Q8K2F0	BRD3_MOUSE	Brd3	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	BRD3	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193638	Q61103	REQU_MOUSE	Dpf2	P20263	PO5F1_MOUSE	Pou5f1	4	2	3	0	5	Dpf2;Baf45d;Req;Ubid4	BAF	ACCESSORY	Homeodomain;POU	Known motif	Monomer or homomultimer
+371000	Q64127	TIF1A_MOUSE	Trim24	P20263	PO5F1_MOUSE	Pou5f1	2	2	1	0	2	Trim24;TIF1A	NA	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552040	Q6P9L3	Q6P9L3_MOUSE	Bptf	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Bptf;Falz	NURF	ACCESSORY	Homeodomain;POU	Known motif	Monomer or homomultimer
+193685	Q6PDQ2	CHD4_MOUSE	Chd4	P20263	PO5F1_MOUSE	Pou5f1	6	4	4	0	12	Mi-2β;Chd4	NuRD	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552113	Q9WU42	NCOR2_MOUSE	Ncor2	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Smrt;Ncor2;Trac;Smrte	SMRT	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552162	Q80UV9	TAF1_MOUSE	Taf1	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Taf1;TafII250;p250	TFIID	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+552177	Q80X50	UBP2L_MOUSE	Ubap2l	P20263	PO5F1_MOUSE	Pou5f1	1	1	1	0	1	Ubap2l;Nice4	ATAC	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
+193681	Q924K8	MTA3_MOUSE	Mta3	P20263	PO5F1_MOUSE	Pou5f1	5	3	3	0	6	Mta3	NuRD	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
 551060	Q8C796	RCOR2_MOUSE	Rcor2	P22091	TAL1_MOUSE	Tal1	1	1	1	0	1	Rcor1;M-CoREST	CoREST	NA	bHLH	Known motif	Obligate heteromer
 367401	O54972	MTG16_MOUSE	Cbfa2t3	P22091	TAL1_MOUSE	Tal1	5	4	2	0	11	CBFA2T3	NA	NA	bHLH	Known motif	Obligate heteromer
 367404	P70288	HDAC2_MOUSE	Hdac2	P22091	TAL1_MOUSE	Tal1	1	1	1	0	1	Hdac2;Hd2;Yy1bp	Sin3;NuRD;CoREST	NA	bHLH	Known motif	Obligate heteromer
@@ -316,7 +316,7 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 369040	Q6P9Z1	SMRD3_MOUSE	Smarcd3	P31266	SUH_MOUSE	Rbpj	3	3	1	0	6	Smarcd3;Baf60c	BAF	ACCESSORY	CSL	Known motif	Monomer or homomultimer
 369042	Q3TKT4	SMCA4_MOUSE	Smarca4	P31266	SUH_MOUSE	Rbpj	1	1	1	0	2	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	CSL	Known motif	Monomer or homomultimer
 193661	P20263	PO5F1_MOUSE	Pou5f1	P31266	SUH_MOUSE	Rbpj	2	2	1	0	3	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	CSL	Known motif	Monomer or homomultimer
-365281	Q6NZQ4	PAXI1_MOUSE	Paxip1	P32114	PAX2_MOUSE	Pax2	4	4	1	0	7	Paxip1;Ptip	MLL3;MLL4	NA	Homeodomain; Paired box	Known motif	Monomer or homomultimer
+365281	Q6NZQ4	PAXI1_MOUSE	Paxip1	P32114	PAX2_MOUSE	Pax2	4	4	1	0	7	Paxip1;Ptip	MLL3;MLL4	NA	Homeodomain;Paired box	Known motif	Monomer or homomultimer
 564198	O88559	MEN1_MOUSE	Men1	P33242	STF1_MOUSE	Nr5a1	1	1	1	0	1	Men1	MLL1	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 551840	P70365	NCOA1_MOUSE	Ncoa1	P33242	STF1_MOUSE	Nr5a1	1	1	1	0	1	Ncoa1;Nrc1;Src1	SRC	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 552166	P20263	PO5F1_MOUSE	Pou5f1	P34056	AP2A_MOUSE	Tfap2a	1	1	1	0	1	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	AP-2	Known motif	Monomer or homomultimer
@@ -333,11 +333,11 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 558928	Q921E6	EED_MOUSE	Eed	P42227	STAT3_MOUSE	Stat3	1	1	1	0	1	Eed	PRC2	NA	STAT	Known motif	Monomer or homomultimer
 550329	E9Q4N7	ARI1B_MOUSE	Arid1b	P42227	STAT3_MOUSE	Stat3	1	1	1	0	1	Arid1b;Baf250b	BAF	ACCESSORY	STAT	Known motif	Monomer or homomultimer
 549831	O09106	HDAC1_MOUSE	Hdac1	P42230	STA5A_MOUSE	Stat5a	1	1	1	0	1	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	STAT	Known motif	Monomer or homomultimer
-541844	Q9Z277	BAZ1B_MOUSE	Baz1b	P42582	NKX25_MOUSE	Nkx2-5	1	1	1	0	1	BAZ1B	NA	NA	Homeodomain	Known motif	Monomer or homomultimer
+541844	Q9Z277	BAZ1B_MOUSE	Baz1b	P42582	NKX25_MOUSE	Nkx2-5	1	1	1	0	1	Wstf;Baz1b;Wbscr9	WICH	ACCESSORY	Homeodomain	Known motif	Monomer or homomultimer
 366804	Q62315	JARD2_MOUSE	Jarid2	P42582	NKX25_MOUSE	Nkx2-5	2	2	1	0	3	Jarid2;Jmj	PRC2.2	NA	Homeodomain	Known motif	Monomer or homomultimer
 369807	Q8BVE8	NSD2_MOUSE	Nsd2	P42582	NKX25_MOUSE	Nkx2-5	2	2	1	0	4	NSD2	NA	NA	Homeodomain	Known motif	Monomer or homomultimer
 550021	Q3TKT4	SMCA4_MOUSE	Smarca4	P42582	NKX25_MOUSE	Nkx2-5	1	1	1	0	1	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	Homeodomain	Known motif	Monomer or homomultimer
-541844	Q9Z277	BAZ1B_MOUSE	Baz1b	P42582	NKX25_MOUSE	Nkx2-5	1	1	1	0	1	Wstf;Baz1b;Wbscr9	WICH	ACCESSORY	Homeodomain	Known motif	Monomer or homomultimer
+541844	Q9Z277	BAZ1B_MOUSE	Baz1b	P42582	NKX25_MOUSE	Nkx2-5	1	1	1	0	1	BAZ1B	NA	NA	Homeodomain	Known motif	Monomer or homomultimer
 550252	Q3TKT4	SMCA4_MOUSE	Smarca4	P43241	CDX2_MOUSE	Cdx2	1	1	1	0	1	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	Homeodomain	Known motif	Monomer or homomultimer
 556181	P20263	PO5F1_MOUSE	Pou5f1	P43241	CDX2_MOUSE	Cdx2	2	2	1	0	2	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	Homeodomain	Known motif	Monomer or homomultimer
 550344	P20263	PO5F1_MOUSE	Pou5f1	P43267	SOX15_MOUSE	Sox15	2	2	2	0	3	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	HMG/Sox	Known motif	Monomer or homomultimer
@@ -346,8 +346,8 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 550739	Q6PDG5	SMRC2_MOUSE	Smarcc2	P47806	GLI1_MOUSE	Gli1	1	1	1	0	1	Smarcc2;Baf170	BAF	CORE	C2H2 ZF	Known motif	Monomer or homomultimer
 550740	O54941	SMCE1_MOUSE	Smarce1	P47806	GLI1_MOUSE	Gli1	1	1	1	0	1	Smarce1;Baf57	BAF	ACCESSORY	C2H2 ZF	Known motif	Monomer or homomultimer
 381011	Q64127	TIF1A_MOUSE	Trim24	P48281	VDR_MOUSE	Vdr	1	1	1	0	1	Trim24;TIF1A	NA	NA	Nuclear receptor	Known motif	Monomer or homomultimer
-541841	Q9Z277	BAZ1B_MOUSE	Baz1b	P48281	VDR_MOUSE	Vdr	1	1	1	0	1	Wstf;Baz1b;Wbscr9	WICH	ACCESSORY	Nuclear receptor	Known motif	Monomer or homomultimer
 541841	Q9Z277	BAZ1B_MOUSE	Baz1b	P48281	VDR_MOUSE	Vdr	1	1	1	0	1	BAZ1B	NA	NA	Nuclear receptor	Known motif	Monomer or homomultimer
+541841	Q9Z277	BAZ1B_MOUSE	Baz1b	P48281	VDR_MOUSE	Vdr	1	1	1	0	1	Wstf;Baz1b;Wbscr9	WICH	ACCESSORY	Nuclear receptor	Known motif	Monomer or homomultimer
 379415	P70365	NCOA1_MOUSE	Ncoa1	P48281	VDR_MOUSE	Vdr	2	2	2	0	2	Ncoa1;Nrc1;Src1	SRC	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 371041	P20263	PO5F1_MOUSE	Pou5f1	P48379	RFX2_MOUSE	Rfx2	2	2	1	0	2	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	RFX	Known motif	Monomer or homomultimer
 556211	Q921N8	GPS2_MOUSE	Gps2	P48379	RFX2_MOUSE	Rfx2	1	1	1	0	1	Gps2	NCoR;SMRT	NA	RFX	Known motif	Monomer or homomultimer
@@ -391,12 +391,12 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 548942	Q8C092	TAF5_MOUSE	Taf5	P54841	MAFB_MOUSE	Mafb	1	1	1	0	1	Taf5;TfII100	TFTC	NA	bZIP	Known motif	Monomer or homomultimer
 367559	Q91ZW3	SMCA5_MOUSE	Smarca5	P54843	MAF_MOUSE	Maf	2	2	1	0	2	Smarca5;Snf2h	CHRAC	CATALYTIC	bZIP	Known motif	Monomer or homomultimer
 366106	P45481	CBP_MOUSE	Crebbp	P54843	MAF_MOUSE	Maf	2	2	1	0	2	Cbp;Crebbp	CBP	NA	bZIP	Known motif	Monomer or homomultimer
-372228	Q8BX09	RBBP5_MOUSE	Rbbp5	P55200	KMT2A_MOUSE	Kmt2a	1	1	1	0	1	Rbbp5	MLL	NA	CxxC; AT hook	Known motif	Monomer or homomultimer
-552273	Q61191	HCFC1_MOUSE	Hcfc1	P55200	KMT2A_MOUSE	Kmt2a	1	1	1	0	1	Hcfc1	MLL1	NA	CxxC; AT hook	Known motif	Monomer or homomultimer
-552272	P55200	KMT2A_MOUSE	Kmt2a	P55200	KMT2A_MOUSE	Kmt2a	1	1	1	0	1	Kmt2a;All1;Hrx;Mll;Mll1	MLL1	NA	CxxC; AT hook	Known motif	Monomer or homomultimer
+372228	Q8BX09	RBBP5_MOUSE	Rbbp5	P55200	KMT2A_MOUSE	Kmt2a	1	1	1	0	1	Rbbp5	MLL	NA	CxxC;AT hook	Known motif	Monomer or homomultimer
+552273	Q61191	HCFC1_MOUSE	Hcfc1	P55200	KMT2A_MOUSE	Kmt2a	1	1	1	0	1	Hcfc1	MLL1	NA	CxxC;AT hook	Known motif	Monomer or homomultimer
+552272	P55200	KMT2A_MOUSE	Kmt2a	P55200	KMT2A_MOUSE	Kmt2a	1	1	1	0	1	Kmt2a;All1;Hrx;Mll;Mll1	MLL1	NA	CxxC;AT hook	Known motif	Monomer or homomultimer
 552073	P20263	PO5F1_MOUSE	Pou5f1	P62509	ERR3_MOUSE	Esrrg	1	1	1	0	1	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 558887	Q921E6	EED_MOUSE	Eed	P62960	YBOX1_MOUSE	Ybx1	1	1	1	0	1	Eed	PRC2	NA	CSD	Known motif	Monomer or homomultimer
-365284	Q6NZQ4	PAXI1_MOUSE	Paxip1	P63015	PAX6_MOUSE	Pax6	1	1	1	0	1	Paxip1;Ptip	MLL3;MLL4	NA	Homeodomain; Paired box	Known motif	Monomer or homomultimer
+365284	Q6NZQ4	PAXI1_MOUSE	Paxip1	P63015	PAX6_MOUSE	Pax6	1	1	1	0	1	Paxip1;Ptip	MLL3;MLL4	NA	Homeodomain;Paired box	Known motif	Monomer or homomultimer
 549362	Q9CXU1	MED31_MOUSE	Med31	P63157	BARH1_MOUSE	Barhl1	1	1	1	0	1	Med31;Soh1	Mediator	CORE	Homeodomain	Known motif	Monomer or homomultimer
 373070	Q61466	SMRD1_MOUSE	Smarcd1	P70323	TBX1_MOUSE	Tbx1	2	2	1	0	5	Smarcd1;Baf60a;D15Kz1	BAF	ACCESSORY	T-box	Known motif	Monomer or homomultimer
 550290	Q91X20	ASH2L_MOUSE	Ash2l	P70323	TBX1_MOUSE	Tbx1	2	2	1	0	2	Ash2l	MLL	NA	T-box	Known motif	Monomer or homomultimer
@@ -404,12 +404,12 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 380527	Q8BX09	RBBP5_MOUSE	Rbbp5	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	Rbbp5	MLL	NA	T-box	Known motif	Monomer or homomultimer
 380520	G5E8Z2	TAF4B_MOUSE	Taf4b	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	Taf4b;TfII105	TFIID	NA	T-box	Known motif	Monomer or homomultimer
 380538	Q8CHY6	P66A_MOUSE	Gatad2a	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	p66α;Gatad2a	NuRD;NODE	NA	T-box	Known motif	Monomer or homomultimer
-541843	Q9Z277	BAZ1B_MOUSE	Baz1b	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	BAZ1B	NA	NA	T-box	Known motif	Monomer or homomultimer
+541843	Q9Z277	BAZ1B_MOUSE	Baz1b	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	Wstf;Baz1b;Wbscr9	WICH	ACCESSORY	T-box	Known motif	Monomer or homomultimer
 380518	Q62311	TAF6_MOUSE	Taf6	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	Taf6;TfII80;TfII70;p80	TFTC	NA	T-box	Known motif	Monomer or homomultimer
 380546	Q9Z2N8	ACL6A_MOUSE	Actl6a	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	Actl6a;Baf53a	BAF	ACCESSORY	T-box	Known motif	Monomer or homomultimer
 550020	Q3TKT4	SMCA4_MOUSE	Smarca4	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	T-box	Known motif	Monomer or homomultimer
 380491	Q6PDQ2	CHD4_MOUSE	Chd4	P70326	TBX5_MOUSE	Tbx5	2	2	1	0	3	Mi-2β;Chd4	NuRD	NA	T-box	Known motif	Monomer or homomultimer
-541843	Q9Z277	BAZ1B_MOUSE	Baz1b	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	Wstf;Baz1b;Wbscr9	WICH	ACCESSORY	T-box	Known motif	Monomer or homomultimer
+541843	Q9Z277	BAZ1B_MOUSE	Baz1b	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	BAZ1B	NA	NA	T-box	Known motif	Monomer or homomultimer
 380493	Q6PDG5	SMRC2_MOUSE	Smarcc2	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	Smarcc2;Baf170	BAF	CORE	T-box	Known motif	Monomer or homomultimer
 380490	Q8K4B0	MTA1_MOUSE	Mta1	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	2	Mta1	NuRD;NODE	NA	T-box	Known motif	Monomer or homomultimer
 380537	Q8VHR5	P66B_MOUSE	Gatad2b	P70326	TBX5_MOUSE	Tbx5	1	1	1	0	1	p66β;Gatad2b;p66/p68	NuRD;NODE	NA	T-box	Known motif	Monomer or homomultimer
@@ -439,7 +439,7 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 553202	P70288	HDAC2_MOUSE	Hdac2	P97875	JDP2_MOUSE	Jdp2	1	1	1	0	1	Hdac2;Hd2;Yy1bp	Sin3;NuRD;CoREST	NA	bZIP	Known motif	Monomer or homomultimer
 553201	O09106	HDAC1_MOUSE	Hdac1	P97875	JDP2_MOUSE	Jdp2	1	1	1	0	1	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	bZIP	Known motif	Monomer or homomultimer
 381012	Q64127	TIF1A_MOUSE	Trim24	Q00175	PRGR_MOUSE	Pgr	1	1	1	0	1	Trim24;TIF1A	NA	NA	Nuclear receptor	Known motif	Monomer or homomultimer
-369089	Q6ZQ88	KDM1A_MOUSE	Kdm1a	Q00286	PIT1_MOUSE	Pou1f1	1	1	1	0	2	Kdm1a;Aof2;Kiaa0601;Lsd1	CoREST	NA	Homeodomain; POU	Known motif	Monomer or homomultimer
+369089	Q6ZQ88	KDM1A_MOUSE	Kdm1a	Q00286	PIT1_MOUSE	Pou1f1	1	1	1	0	2	Kdm1a;Aof2;Kiaa0601;Lsd1	CoREST	NA	Homeodomain;POU	Known motif	Monomer or homomultimer
 549141	Q6ZPI0	JADE1_MOUSE	Jade1	Q00288	PAX8_MOUSE	Pax8	1	1	1	0	1	Jade1;Phf17	HBO1	NA	Paired box	Known motif	Monomer or homomultimer
 365283	Q6NZQ4	PAXI1_MOUSE	Paxip1	Q00288	PAX8_MOUSE	Pax8	1	1	1	0	1	Paxip1;Ptip	MLL3;MLL4	NA	Paired box	Known motif	Monomer or homomultimer
 367742	O09000	NCOA3_MOUSE	Ncoa3	Q00322	CEBPD_MOUSE	Cebpd	1	1	1	0	2	Ncoa3;Pcip;Src3;Tram1;Rac3;Actr;Aib1	SRC	NA	bZIP	Known motif	Monomer or homomultimer
@@ -497,10 +497,10 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 549072	Q62240	KDM5D_MOUSE	Kdm5d	Q07279	NFE2_MOUSE	Nfe2	1	1	1	0	1	Kdm5d;Hya;Jarid1d;Smcy	NA	NA	bZIP	Known motif	Monomer or homomultimer
 370670	Q5DW34	EHMT1_MOUSE	Ehmt1	Q07279	NFE2_MOUSE	Nfe2	1	1	1	0	3	EHMT1;GLP	NA	NA	bZIP	Known motif	Monomer or homomultimer
 549070	Q61103	REQU_MOUSE	Dpf2	Q07279	NFE2_MOUSE	Nfe2	1	1	1	0	1	Dpf2;Baf45d;Req;Ubid4	BAF	ACCESSORY	bZIP	Known motif	Monomer or homomultimer
-541845	Q9Z277	BAZ1B_MOUSE	Baz1b	Q08369	GATA4_MOUSE	Gata4	1	1	1	0	1	Wstf;Baz1b;Wbscr9	WICH	ACCESSORY	GATA	Known motif	Monomer or homomultimer
+541845	Q9Z277	BAZ1B_MOUSE	Baz1b	Q08369	GATA4_MOUSE	Gata4	1	1	1	0	1	BAZ1B	NA	NA	GATA	Known motif	Monomer or homomultimer
 558548	Q921E6	EED_MOUSE	Eed	Q08369	GATA4_MOUSE	Gata4	1	1	1	0	1	Eed	PRC2	NA	GATA	Known motif	Monomer or homomultimer
 550026	Q6P9Z1	SMRD3_MOUSE	Smarcd3	Q08369	GATA4_MOUSE	Gata4	1	1	1	0	1	Smarcd3;Baf60c	BAF	ACCESSORY	GATA	Known motif	Monomer or homomultimer
-541845	Q9Z277	BAZ1B_MOUSE	Baz1b	Q08369	GATA4_MOUSE	Gata4	1	1	1	0	1	BAZ1B	NA	NA	GATA	Known motif	Monomer or homomultimer
+541845	Q9Z277	BAZ1B_MOUSE	Baz1b	Q08369	GATA4_MOUSE	Gata4	1	1	1	0	1	Wstf;Baz1b;Wbscr9	WICH	ACCESSORY	GATA	Known motif	Monomer or homomultimer
 550022	Q3TKT4	SMCA4_MOUSE	Smarca4	Q08369	GATA4_MOUSE	Gata4	1	1	1	0	1	Smarca4;Baf190a;Snf2l4;Snf2b;Brg1	BAF	CATALYTIC	GATA	Known motif	Monomer or homomultimer
 366803	Q62315	JARD2_MOUSE	Jarid2	Q08369	GATA4_MOUSE	Gata4	2	2	1	0	3	Jarid2;Jmj	PRC2.2	NA	GATA	Known motif	Monomer or homomultimer
 548791	Q925J9	MED1_MOUSE	Med1	Q08369	GATA4_MOUSE	Gata4	1	1	1	0	1	Med1;Crsp210;Drip205;Pbp;Pparbp;Trap220;Trip2	Mediator	CORE	GATA	Known motif	Monomer or homomultimer
@@ -754,8 +754,8 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 369063	O88895	HDAC3_MOUSE	Hdac3	Q64104	NR2E1_MOUSE	Nr2e1	2	2	1	0	3	Hdac3;Hd3	NCoR;SMRT	NA	Nuclear receptor	Known motif	Monomer or homomultimer
 557894	Q9QYE3	BC11A_MOUSE	Bcl11a	Q64104	NR2E1_MOUSE	Nr2e1	1	1	1	0	1	Bcl11a;Ctip1;Evi9;Kiaa1809	BAF	ACCESSORY	Nuclear receptor	Known motif	Monomer or homomultimer
 554011	Q9WU42	NCOR2_MOUSE	Ncor2	Q64249	NR6A1_MOUSE	Nr6a1	1	1	1	0	1	Smrt;Ncor2;Trac;Smrte	SMRT	NA	Nuclear receptor	Known motif	Monomer or homomultimer
-369091	O88712	CTBP1_MOUSE	Ctbp1	Q64318	ZEB1_MOUSE	Zeb1	4	3	3	0	7	Ctbp;Ctbp1	CoREST	NA	C2H2 ZF; Homeodomain	Known motif	Monomer or homomultimer
-369090	Q6ZQ88	KDM1A_MOUSE	Kdm1a	Q64318	ZEB1_MOUSE	Zeb1	2	2	1	0	3	Kdm1a;Aof2;Kiaa0601;Lsd1	CoREST	NA	C2H2 ZF; Homeodomain	Known motif	Monomer or homomultimer
+369091	O88712	CTBP1_MOUSE	Ctbp1	Q64318	ZEB1_MOUSE	Zeb1	4	3	3	0	7	Ctbp;Ctbp1	CoREST	NA	C2H2 ZF;Homeodomain	Known motif	Monomer or homomultimer
+369090	Q6ZQ88	KDM1A_MOUSE	Kdm1a	Q64318	ZEB1_MOUSE	Zeb1	2	2	1	0	3	Kdm1a;Aof2;Kiaa0601;Lsd1	CoREST	NA	C2H2 ZF;Homeodomain	Known motif	Monomer or homomultimer
 550500	B2RWS6	EP300_MOUSE	Ep300	Q64321	ZBT7B_MOUSE	Zbtb7b	1	1	1	0	1	p300;Ep300	p300	NA	C2H2 ZF	Known motif	Monomer or homomultimer
 373390	O88895	HDAC3_MOUSE	Hdac3	Q64321	ZBT7B_MOUSE	Zbtb7b	2	2	1	0	5	Hdac3;Hd3	NCoR;SMRT	NA	C2H2 ZF	Known motif	Monomer or homomultimer
 564387	Q9JHD1	KAT2B_MOUSE	Kat2b	Q69Z66	MYSM1_MOUSE	Mysm1	1	1	1	0	1	Kat2b;Pcaf	PCAF	NA	Myb/SANT	Likely to be sequence specific TF	Low specificity DNA-binding protein
@@ -784,7 +784,7 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 369292	Q5HZG4	TAF3_MOUSE	Taf3	Q6SJ95	TBPL2_MOUSE	Tbpl2	3	3	1	0	3	TAF3	NA	NA	TBP	Inferred motif	Monomer or homomultimer
 556209	Q921N8	GPS2_MOUSE	Gps2	Q7TNK1	RFX4_MOUSE	Rfx4	1	1	1	0	2	Gps2	NCoR;SMRT	NA	RFX	Known motif	Monomer or homomultimer
 558420	Q921E6	EED_MOUSE	Eed	Q7TSH3	ZN516_MOUSE	Znf516	1	1	1	0	1	Eed	PRC2	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
-374134	Q80Z64	NANOG_MOUSE	Nanog	Q80XS2	Q80XS2_MOUSE	Patz1	2	2	1	0	2	Nanog;Ecat4;Enk	NODE	NA	C2H2 ZF; AT hook	Known motif	Monomer or homomultimer
+374134	Q80Z64	NANOG_MOUSE	Nanog	Q80XS2	Q80XS2_MOUSE	Patz1	2	2	1	0	2	Nanog;Ecat4;Enk	NODE	NA	C2H2 ZF;AT hook	Known motif	Monomer or homomultimer
 372576	Q60520	SIN3A_MOUSE	Sin3a	Q80Y84	KDM5B_MOUSE	Kdm5b	2	2	1	0	4	Sin3a;Kiaa4126	Sin3	NA	ARID/BRIGHT	Likely to be sequence specific TF	Monomer or homomultimer
 372579	P60762	MO4L1_MOUSE	Morf4l1	Q80Y84	KDM5B_MOUSE	Kdm5b	2	2	1	0	6	Mrg15;Morf4l1;Morf41r;Tex189	NuA4	NA	ARID/BRIGHT	Likely to be sequence specific TF	Monomer or homomultimer
 372575	O09106	HDAC1_MOUSE	Hdac1	Q80Y84	KDM5B_MOUSE	Kdm5b	2	2	1	0	4	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	ARID/BRIGHT	Likely to be sequence specific TF	Monomer or homomultimer
@@ -953,8 +953,8 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 371053	P20263	PO5F1_MOUSE	Pou5f1	Q8VHR5	P66B_MOUSE	Gatad2b	5	2	4	0	5	Oct4;Pou5f1;Oct-3;Otf-3;Otf3;Oct-4	NODE	NA	GATA	Likely to be sequence specific TF	Monomer or homomultimer
 546333	O09106	HDAC1_MOUSE	Hdac1	Q8VHR5	P66B_MOUSE	Gatad2b	1	1	1	0	1	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	GATA	Likely to be sequence specific TF	Monomer or homomultimer
 374205	Q80Z64	NANOG_MOUSE	Nanog	Q8VHR5	P66B_MOUSE	Gatad2b	3	2	2	0	4	Nanog;Ecat4;Enk	NODE	NA	GATA	Likely to be sequence specific TF	Monomer or homomultimer
-372746	O09106	HDAC1_MOUSE	Hdac1	Q8VI24	SATB2_MOUSE	Satb2	2	2	1	0	3	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	CUT; Homeodomain	Inferred motif	Low specificity DNA-binding protein
-372748	Q9R190	MTA2_MOUSE	Mta2	Q8VI24	SATB2_MOUSE	Satb2	2	2	1	0	3	Mta2;Mta1l1	NuRD;NODE	NA	CUT; Homeodomain	Inferred motif	Low specificity DNA-binding protein
+372746	O09106	HDAC1_MOUSE	Hdac1	Q8VI24	SATB2_MOUSE	Satb2	2	2	1	0	3	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	CUT;Homeodomain	Inferred motif	Low specificity DNA-binding protein
+372748	Q9R190	MTA2_MOUSE	Mta2	Q8VI24	SATB2_MOUSE	Satb2	2	2	1	0	3	Mta2;Mta1l1	NuRD;NODE	NA	CUT;Homeodomain	Inferred motif	Low specificity DNA-binding protein
 173187	Q80Z64	NANOG_MOUSE	Nanog	Q8VIG1	REST_MOUSE	Rest	3	3	1	0	3	Nanog;Ecat4;Enk	NODE	NA	C2H2 ZF	Known motif	Monomer or homomultimer
 374180	Q80Z64	NANOG_MOUSE	Nanog	Q91WA4	CXXC5_MOUSE	Cxxc5	2	2	1	0	2	Nanog;Ecat4;Enk	NODE	NA	CxxC	Known motif	Monomer or homomultimer
 371789	Q9JHD2	KAT2A_MOUSE	Kat2a	Q91WV0	NC2B_MOUSE	Dr1	1	1	1	0	1	Kat2a;Gcn5	GCN5	NA	Unknown	Likely to be sequence specific TF	Obligate heteromer
@@ -1073,14 +1073,14 @@ InteractionID	UniprotID_A	UniprotName_A	GeneName_A	UniprotID_B	UniprotName_B	Gen
 370876	Q61188	EZH2_MOUSE	Ezh2	Q9Z248	AEBP2_MOUSE	Aebp2	4	3	3	0	5	Ezh2;Enx12	PRC2	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
 370775	Q921E6	EED_MOUSE	Eed	Q9Z248	AEBP2_MOUSE	Aebp2	4	2	2	0	7	Eed	PRC2	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
 370871	P70351	EZH1_MOUSE	Ezh1	Q9Z248	AEBP2_MOUSE	Aebp2	3	3	2	0	3	Ezh1;Enx2	PRC2	NA	C2H2 ZF	Likely to be sequence specific TF	Monomer or homomultimer
-374280	O88895	HDAC3_MOUSE	Hdac3	Q9Z2D6	MECP2_MOUSE	Mecp2	2	2	1	0	10	Hdac3;Hd3	NCoR;SMRT	NA	MBD; AT hook	Known motif	Low specificity DNA-binding protein
-374281	Q60974	NCOR1_MOUSE	Ncor1	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	3	Ncor;Rxrip13;NCoR1;RIP13	NCoR	NA	MBD; AT hook	Known motif	Low specificity DNA-binding protein
-366920	P70288	HDAC2_MOUSE	Hdac2	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	1	Hdac2;Hd2;Yy1bp	Sin3;NuRD;CoREST	NA	MBD; AT hook	Known motif	Low specificity DNA-binding protein
-374278	Q60520	SIN3A_MOUSE	Sin3a	Q9Z2D6	MECP2_MOUSE	Mecp2	3	3	2	0	6	Sin3a;Kiaa4126	Sin3	NA	MBD; AT hook	Known motif	Low specificity DNA-binding protein
-366914	O54941	SMCE1_MOUSE	Smarce1	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	1	Smarce1;Baf57	BAF	ACCESSORY	MBD; AT hook	Known motif	Low specificity DNA-binding protein
-552024	O09106	HDAC1_MOUSE	Hdac1	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	1	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	MBD; AT hook	Known motif	Low specificity DNA-binding protein
-551750	B2RWS6	EP300_MOUSE	Ep300	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	1	p300;Ep300	p300	NA	MBD; AT hook	Known motif	Low specificity DNA-binding protein
-374279	Q8BHJ5	TBL1R_MOUSE	Tbl1xr1	Q9Z2D6	MECP2_MOUSE	Mecp2	2	2	1	0	5	Tblr1;Tbl1xr1;Ira1	NCoR;SMRT	NA	MBD; AT hook	Known motif	Low specificity DNA-binding protein
+374280	O88895	HDAC3_MOUSE	Hdac3	Q9Z2D6	MECP2_MOUSE	Mecp2	2	2	1	0	10	Hdac3;Hd3	NCoR;SMRT	NA	MBD;AT hook	Known motif	Low specificity DNA-binding protein
+374281	Q60974	NCOR1_MOUSE	Ncor1	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	3	Ncor;Rxrip13;NCoR1;RIP13	NCoR	NA	MBD;AT hook	Known motif	Low specificity DNA-binding protein
+366920	P70288	HDAC2_MOUSE	Hdac2	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	1	Hdac2;Hd2;Yy1bp	Sin3;NuRD;CoREST	NA	MBD;AT hook	Known motif	Low specificity DNA-binding protein
+374278	Q60520	SIN3A_MOUSE	Sin3a	Q9Z2D6	MECP2_MOUSE	Mecp2	3	3	2	0	6	Sin3a;Kiaa4126	Sin3	NA	MBD;AT hook	Known motif	Low specificity DNA-binding protein
+366914	O54941	SMCE1_MOUSE	Smarce1	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	1	Smarce1;Baf57	BAF	ACCESSORY	MBD;AT hook	Known motif	Low specificity DNA-binding protein
+552024	O09106	HDAC1_MOUSE	Hdac1	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	1	Hdac1;Hd1	Sin3;NuRD;CoREST	NA	MBD;AT hook	Known motif	Low specificity DNA-binding protein
+551750	B2RWS6	EP300_MOUSE	Ep300	Q9Z2D6	MECP2_MOUSE	Mecp2	1	1	1	0	1	p300;Ep300	p300	NA	MBD;AT hook	Known motif	Low specificity DNA-binding protein
+374279	Q8BHJ5	TBL1R_MOUSE	Tbl1xr1	Q9Z2D6	MECP2_MOUSE	Mecp2	2	2	1	0	5	Tblr1;Tbl1xr1;Ira1	NCoR;SMRT	NA	MBD;AT hook	Known motif	Low specificity DNA-binding protein
 558208	Q6A4J8	UBP7_MOUSE	Usp7	Q9Z2D7	MBD4_MOUSE	Mbd4	1	1	1	0	1	UBP7	NA	NA	MBD	Likely to be sequence specific TF	Low specificity DNA-binding protein
 568523	Q9Z148	EHMT2_MOUSE	Ehmt2	Q9Z2D8	MBD3_MOUSE	Mbd3	1	1	1	0	1	EHMT2;G9a	NA	NA	MBD	Likely to be sequence specific TF	Low specificity DNA-binding protein
 549702	P70288	HDAC2_MOUSE	Hdac2	Q9Z2D8	MBD3_MOUSE	Mbd3	1	1	1	0	1	Hdac2;Hd2;Yy1bp	Sin3;NuRD;CoREST	NA	MBD	Likely to be sequence specific TF	Low specificity DNA-binding protein
