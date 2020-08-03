@@ -17,7 +17,9 @@ library("tidyverse")
 # columns: the name of the data frame column to plot as columns of the heatmap
 # rows: the name of the data frame column to plot as rows of the heatmap
 # filters: a list of filters to apply to the data frame (default: no filters)
-#   See examples
+#   should be a named list where the name is the column to search and the values
+#   are the values to search for in that column
+#   i.e., filters = list("Complex_A" = c("MLL", "PRC2"), "DBD_B" = "C2H2 ZF")
 # plot_title: the title for the heatmap (default: no title)
 # x_lab: the x axis label (default: no label)
 # y_lab: the y axis label (default: no label)
@@ -57,20 +59,14 @@ plot_heatmap <-
 
 # Helper function to expand data frame rows when multiple values are listed in
 #   a single row for one (or both) of the variables to plot
+# Values must be semicolon delimited
 # Arguments are as explained for plot_heatmap()
 expand_rows <- function(dat, columns, rows) {
-    # Initialize return value to be original data frame
-    dat_expanded <- dat
+    # Separate rows based on variable to plot as columns
+    dat_expanded <- separate_rows(dat, !!as.symbol(columns), sep = ";")
     
-    # Expand rows based on Complex_A if necessary
-    if (columns == "Complex_A" || rows == "Complex_A") {
-        dat_expanded <- separate_rows(dat_expanded, Complex_A, sep = ";")
-    }
-    
-    # Expand rows based on DBD_B if necessary
-    if (columns == "DBD_B" || rows == "DBD_B") {
-        dat_expanded <- separate_rows(dat_expanded, DBD_B, sep = "; ")
-    }
+    # Separate rows based on variable to plot as rows
+    dat_expanded <- separate_rows(dat_expanded, !!as.symbol(rows), sep = ";")
     
     # Return expanded data frame
     return(dat_expanded)
