@@ -90,16 +90,14 @@ filter_rows <- function(dat, filters) {
     for (name in names(filters)) {
         # Check if this column contains characters
         if (is.character(dat_filtered[[name]])) {
-            # Use str_detect to check if a cell contains a string
-            dat_filtered <- dat_filtered %>%
-                filter(
-                    filters[[name]] %>%
-                        # Search for each string individually
-                        map(~ str_detect(dat_filtered[[name]],
-                                         fixed(., ignore_case  = TRUE))) %>%
-                        # Keep the row if any of the strings are found
-                        pmap_lgl(any)
-                )
+            # Put together a regular expression containing all the search terms
+            pattern <-
+                paste(paste0("(^|;)", filters[[name]], "($|;)"), collapse = "|")
+            
+            # Check each cell in the column for the regular expression
+            dat_filtered <-
+                filter(dat_filtered, str_detect(dat_filtered[[name]], pattern))
+            
         } else {
             # If this column is not character values, just check if the value
             #   for each row is in the list of values to include
