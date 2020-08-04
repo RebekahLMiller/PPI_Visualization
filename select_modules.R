@@ -74,6 +74,9 @@ filter_data_server <- function(id, dat) {
             }
         })
         
+        # Keep track of the previous number of filters
+        prev_num_filters <- reactiveVal(0)
+        
         # Add a filter when the add filter button is clicked
         observeEvent(input$add_filter, {
             # Make ids for referencing the new filter div and its contents
@@ -98,10 +101,12 @@ filter_data_server <- function(id, dat) {
                         colnames(dat())
                     ),
                     
-                    # Add text input box to write in terms to filter
-                    textAreaInput(
+                    # Add dropdown menu to select terms to filter
+                    selectizeInput(
                         ns(values_id),
-                        "Insert the values to search for, one per line"
+                        "Select the values to search for",
+                        choices = NULL,
+                        multiple = TRUE
                     ),
                     
                     # Give this filter div an id so it can be removed easily
@@ -115,6 +120,41 @@ filter_data_server <- function(id, dat) {
             
             # Add one to the filter counter
             num_filters(num_filters() + 1)
+        })
+        
+        # Update the choices of terms to search for based on selected column
+        observe({
+            if (num_filters() > prev_num_filters()) {
+                for (n in 1:num_filters()) {
+                    # Get the ids of the widgets for this div
+                    column_id <- paste("filter_column", n, sep = "_")
+                    values_id <- paste("filter_values", n, sep = "_")
+                    
+                    # Update the dropdown for selecting the values
+                    observeEvent(input[[column_id]], {
+                        if (!is.null(input[[column_id]])) {
+                            # Get the values from the selected column
+                            choices <- sort(unique(dat()[, input[[column_id]]]))
+                            
+                            # Split semicolon delimited character values
+                            if (is.character(choices)) {
+                                choices <-
+                                    sort(unique(unlist(strsplit(choices, ";"))))
+                            }
+                            
+                            # Update the dropdown menu
+                            updateSelectizeInput(
+                                session,
+                                values_id,
+                                choices = choices
+                            )
+                        }
+                    })
+                }
+            }
+            
+            # Set the previous number of filters to the current number
+            prev_num_filters(num_filters())
         })
         
         # Remove the last filter when the remove filter button is clicked
