@@ -20,6 +20,16 @@ generate_heatmap_UI <- function(id) {
                     "Select the variable to plot on the y-axis",
                     choices = NULL),
         
+        # Choose whether or not to cluster the columns
+        checkboxInput(ns("cluster_columns"),
+                      "Cluster columns",
+                      value = FALSE),
+        
+        # Choose whether or not to cluster the rows
+        checkboxInput(ns("cluster_rows"),
+                      "Cluster rows",
+                      value = FALSE),
+        
         # Add a title to the heatmap
         textInput(ns("title"),
                   "Add a title"),
@@ -93,6 +103,8 @@ generate_heatmap_server <- function(id, dat, filters) {
                 input$select_column,
                 input$select_row,
                 filters(),
+                input$cluster_columns,
+                input$cluster_rows,
                 input$title,
                 input$xlab,
                 input$ylab,

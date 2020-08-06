@@ -7,6 +7,7 @@
 # Load necessary libraries
 library("plyr")
 library("tidyverse")
+library("reshape2")
 
 
 ## DEFINE FUNCTIONS ------------------------------------------------------------
@@ -20,6 +21,10 @@ library("tidyverse")
 #   should be a named list where the name is the column to search and the values
 #   are the values to search for in that column
 #   i.e., filters = list("Complex_A" = c("MLL", "PRC2"), "DBD_B" = "C2H2 ZF")
+# cluster_cols: whether the columns should be ordered by hierarchical clustering
+#   (default: FALSE)
+# cluster_rows: wheher the rows should be ordered by hierarchical clustering
+#   (default: FALSE)
 # plot_title: the title for the heatmap (default: no title)
 # x_lab: the x axis label (default: no label)
 # y_lab: the y axis label (default: no label)
@@ -28,7 +33,8 @@ library("tidyverse")
 # low_color (default: lightgrey)
 # high_color (default: midnightblue)
 plot_heatmap <-
-    function(dat, columns, rows, filters = NA, plot_title = NULL,
+    function(dat, columns, rows, filters = NA, cluster_cols = FALSE,
+             cluster_rows = FALSE, plot_title = NULL,
              x_lab = NULL, y_lab = NULL, show_legend = TRUE, legend_title = NA,
              low_color = "lightgrey", high_color = "midnightblue") {
         # Depending on which columns are selected, expand rows
@@ -44,13 +50,14 @@ plot_heatmap <-
         
         # Count number of times each pair of values to plot appears
         dat_aggregated <-
-            aggregate(dat_filtered[c(rows, columns)],
+            aggregate(dat_filtered[1],
                       by = list(dat_filtered[[columns]], dat_filtered[[rows]]),
                       FUN = length)
         
         # Generate heatmap
         dat_heatmap <-
-            generate_heatmap(dat_aggregated, rows, plot_title, x_lab, y_lab,
+            generate_heatmap(dat_aggregated, cluster_cols, cluster_rows,
+                             plot_title, x_lab, y_lab,
                              show_legend, legend_title, low_color, high_color)
         
         # Return heatmap
@@ -113,11 +120,55 @@ filter_rows <- function(dat, filters) {
 # Helper function to generate a ggplot2 heatmap
 # Arguments are as explained for plot_heatmap()
 generate_heatmap <-
-    function(dat, rows, plot_title, x_lab, y_lab, show_legend,
-             legend_title, low_color, high_color) {
+    function(dat, cluster_cols, cluster_rows, plot_title, x_lab, y_lab,
+             show_legend, legend_title, low_color, high_color) {
+        # Get the name of the column to use for determining fill color
+        fill_column <- names(dat)[3]
+        
+        # Change the column order if the columns should be clustered
+        if (cluster_cols & length(unique(dat$Group.1)) > 1) {
+            # Convert data frame to matrix format
+            dat_mat <-
+                dcast(dat, Group.1 ~ Group.2, value.var = fill_column) %>%
+                
+                # Replace NAs with zeroes
+                replace(is.na(.), 0) %>%
+                
+                # Convert Group.1 column to row names
+                column_to_rownames("Group.1")
+            
+            # Figure out column order using hierarchical clustering
+            col_order <- hclust(dist(dat_mat))$order
+            
+            # Convert Group.1 into a factor with levels in the clustered order
+            dat$Group.1 <-
+                factor(dat$Group.1, levels = rownames(dat_mat)[col_order])
+        }
+        
+        # Change the row order if the rows should be clustered
+        if (cluster_rows & length(unique(dat$Group.2)) > 1) {
+            # Convert data frame to matrix format
+            dat_mat <-
+                dcast(dat, Group.2 ~ Group.1, value.var = fill_column) %>%
+                
+                # Replace NAs with zeroes
+                replace(is.na(.), 0) %>%
+                
+                # Convert Group.2 column to row names
+                column_to_rownames("Group.2")
+            
+            # Figure out row order using hierarchical clustering
+            row_order <- hclust(dist(dat_mat))$order
+            
+            # Convert Group.2 into a factor with levels in the clustered order
+            dat$Group.2 <-
+                factor(dat$Group.2, levels = rownames(dat_mat)[row_order])
+        }
+        
         # Start the plot
         heatmap_dat <-
-            ggplot(dat, aes(x = Group.1, y = Group.2, fill = get(rows))) +
+            ggplot(dat, aes(x = Group.1, y = Group.2,
+                            fill = !!as.symbol(fill_column))) +
             geom_tile(colour = "white")
         
         # Remove axis ticks and grid lines and set theme to black and white
