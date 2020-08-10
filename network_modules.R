@@ -92,8 +92,9 @@ generate_network_server <- function(id, dat_igraph) {
             )
         })
         
-        # Keep track of the number of colors
+        # Keep track of the current and previous number of colors
         num_colors <- reactiveVal(0)
+        prev_num_colors <- reactiveVal(0)
         
         # Disable the remove color button if there are no colors
         observe({
@@ -104,26 +105,25 @@ generate_network_server <- function(id, dat_igraph) {
             }
         })
         
-        # Keep track of the previous number of network colors
-        prev_num_colors <- reactiveVal(0)
-        
         # Add a color when the add color button is clicked
         observeEvent(input$add_color, {
             # Make ids for referencing the new color div and its contents
             n <- num_colors() + 1
             div_id <- paste("color_div", n, sep = "_")
-            header_id <- paste("color_header", n, sep = "_")
             column_id <- paste("color_column", n, sep = "_")
             values_id <- paste("color_values", n, sep = "_")
             color_id <- paste("color_choice", n, sep = "_")
             
             # Add color selecting widgets
             insertUI(
+                # Set the location for the new widgets
                 paste0("#", ns("colors_placeholder")),
                 "beforeEnd",
+                
+                # Define the UI for the new widgets
                 tags$div(
                     # Add color header
-                    htmlOutput(ns(header_id)),
+                    h4(paste("Color", n)),
                     
                     # Add dropdown menu to choose column to color by
                     selectInput(
@@ -150,12 +150,11 @@ generate_network_server <- function(id, dat_igraph) {
                     
                     # Give this color div an id so it can be removed easily
                     id = div_id
-                )
+                ),
+                
+                # Insert the new widgets immediately
+                immediate = TRUE
             )
-            
-            # Render the filter header text
-            output[[header_id]] <-
-                renderUI(h4(paste("Color", n)))
             
             # Add one to the color counter
             num_colors(num_colors() + 1)

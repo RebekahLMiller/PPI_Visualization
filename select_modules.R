@@ -62,8 +62,9 @@ filter_data_server <- function(id, dat) {
         # Set the namespace
         ns = session$ns
         
-        # Keep track of the number of filters
+        # Keep track of the current and previous number of filters
         num_filters <- reactiveVal(0)
+        prev_num_filters <- reactiveVal(0)
         
         # Disable the remove filter button if there are no filters
         observe({
@@ -74,25 +75,24 @@ filter_data_server <- function(id, dat) {
             }
         })
         
-        # Keep track of the previous number of filters
-        prev_num_filters <- reactiveVal(0)
-        
         # Add a filter when the add filter button is clicked
         observeEvent(input$add_filter, {
             # Make ids for referencing the new filter div and its contents
             n <- num_filters() + 1
             div_id <- paste("filter_div", n, sep = "_")
-            header_id <- paste("filter_header", n, sep = "_")
             column_id <- paste("filter_column", n, sep = "_")
             values_id <- paste("filter_values", n, sep = "_")
             
             # Add filter widgets
             insertUI(
+                # Set the location for the new widgets
                 paste0("#", ns("filters_placeholder")),
                 "beforeEnd",
+                
+                # Define the UI for the new widgets
                 tags$div(
                     # Add filter header
-                    htmlOutput(ns(header_id)),
+                    h4(paste("Filter", n)),
                     
                     # Add dropdown menu to choose column to filter by
                     selectInput(
@@ -111,12 +111,11 @@ filter_data_server <- function(id, dat) {
                     
                     # Give this filter div an id so it can be removed easily
                     id = div_id
-                )
+                ),
+                
+                # Insert the new widgets immediately
+                immediate = TRUE
             )
-            
-            # Render the filter header text
-            output[[header_id]] <-
-                renderUI(h4(paste("Filter", n)))
             
             # Add one to the filter counter
             num_filters(num_filters() + 1)
@@ -132,7 +131,8 @@ filter_data_server <- function(id, dat) {
                     
                     # Update the dropdown for selecting the values
                     observeEvent(input[[column_id]], {
-                        if (!is.null(input[[column_id]])) {
+                        if (!is.null(input[[column_id]]) &
+                            input[[column_id]] %in% colnames(dat())) {
                             # Get the values from the selected column
                             choices <- sort(unique(dat()[, input[[column_id]]]))
                             
@@ -160,10 +160,10 @@ filter_data_server <- function(id, dat) {
         # Remove the last filter when the remove filter button is clicked
         observeEvent(input$remove_filter, {
             # Clear the input values or the app won't actually update :(
-            updateTextAreaInput(
+            updateSelectInput(
                 session,
                 paste("filter_values", num_filters(), sep = "_"),
-                value = ""
+                choices = ""
             )
             
             # Remove filter div
@@ -177,10 +177,10 @@ filter_data_server <- function(id, dat) {
         observeEvent(dat(), {
             while (num_filters() > 0) {
                 # Clear the input values or the app won't actually update :(
-                updateTextAreaInput(
+                updateSelectInput(
                     session,
                     paste("filter_values", num_filters(), sep = "_"),
-                    value = ""
+                    choices = ""
                 )
                 
                 # Remove filter div
