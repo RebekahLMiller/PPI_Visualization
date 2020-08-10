@@ -20,6 +20,11 @@ generate_heatmap_UI <- function(id) {
                     "Select the variable to plot on the y-axis",
                     choices = NULL),
         
+        # Select the variable to use to color the heatmap
+        selectInput(ns("select_fill"),
+                    "Select the variable to use to color the heatmap",
+                    choices = NULL),
+        
         # Choose whether or not to cluster the columns
         checkboxInput(ns("cluster_columns"),
                       "Cluster columns",
@@ -74,7 +79,7 @@ generate_heatmap_UI <- function(id) {
 # Define the server for the heatmap tab's plot generation
 generate_heatmap_server <- function(id, dat, filters) {
     moduleServer(id, function(input, output, session) {
-        # Update heatmap row and column choices based on selected dataset
+        # Update heatmap row, column, and fill choices based on selected dataset
         observeEvent(dat(), {
             # Update choices for variables to use as rows
             updateSelectInput(
@@ -89,6 +94,14 @@ generate_heatmap_server <- function(id, dat, filters) {
                 "select_column",
                 choices = colnames(dat())
             )
+            
+            # Update choices for variables to use to color the heatmap
+            updateSelectInput(
+                session,
+                "select_fill",
+                choices = c("Number of interactions",
+                            names(which(map_lgl(dat(), is.numeric))))
+            )
         })
         
         # Generate the heatmap
@@ -97,11 +110,18 @@ generate_heatmap_server <- function(id, dat, filters) {
             req(input$select_column %in% colnames(dat()))
             req(input$select_row %in% colnames(dat()))
             
+            # Make sure input$select_fill is the right format for plot_heatmap()
+            select_fill <- input$select_fill
+            if (select_fill == "Number of interactions") {
+                select_fill <- NA
+            }
+            
             # Generate the plot
             heatmap_plot <- plot_heatmap(
                 dat(),
                 input$select_column,
                 input$select_row,
+                select_fill,
                 filters(),
                 input$cluster_columns,
                 input$cluster_rows,

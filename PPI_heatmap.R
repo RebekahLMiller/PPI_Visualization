@@ -17,6 +17,8 @@ library("reshape2")
 # dat: the data frame to use
 # columns: the name of the data frame column to plot as columns of the heatmap
 # rows: the name of the data frame column to plot as rows of the heatmap
+# fill_var: the name of the data frame column to use to color the heatmap
+#   (default: color by number of interactions)
 # filters: a list of filters to apply to the data frame (default: no filters)
 #   should be a named list where the name is the column to search and the values
 #   are the values to search for in that column
@@ -33,8 +35,8 @@ library("reshape2")
 # low_color (default: lightgrey)
 # high_color (default: midnightblue)
 plot_heatmap <-
-    function(dat, columns, rows, filters = NA, cluster_cols = FALSE,
-             cluster_rows = FALSE, plot_title = NULL,
+    function(dat, columns, rows, fill_var = NA, filters = NA,
+             cluster_cols = FALSE, cluster_rows = FALSE, plot_title = NULL,
              x_lab = NULL, y_lab = NULL, show_legend = TRUE, legend_title = NA,
              low_color = "lightgrey", high_color = "midnightblue") {
         # Depending on which columns are selected, expand rows
@@ -48,11 +50,27 @@ plot_heatmap <-
             return()
         }
         
-        # Count number of times each pair of values to plot appears
-        dat_aggregated <-
-            aggregate(dat_filtered[1],
-                      by = list(dat_filtered[[columns]], dat_filtered[[rows]]),
-                      FUN = length)
+        # Extract new data frame with column, row, and fill values
+        if (is.na(fill_var)) {
+            # Count number of times each pair of values to plot appears
+            dat_aggregated <-
+                aggregate(
+                    dat_filtered[1],
+                    by = list(dat_filtered[[columns]], dat_filtered[[rows]]),
+                    FUN = length
+                )
+        } else {
+            # Take the average value in fill_var column
+            dat_aggregated <- 
+                aggregate(
+                    dat_filtered[fill_var],
+                    by = list(dat_filtered[[columns]], dat_filtered[[rows]]),
+                    # aggregate() turns things into factors, so undo that
+                    FUN = function(x) {
+                        mean(as.numeric(as.character(x)))
+                    }
+                )
+        }
         
         # Generate heatmap
         dat_heatmap <-
