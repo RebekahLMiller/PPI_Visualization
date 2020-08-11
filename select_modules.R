@@ -62,9 +62,9 @@ filter_data_server <- function(id, dat) {
         # Set the namespace
         ns = session$ns
         
-        # Keep track of the current and previous number of filters
+        # Keep track of the current and maximum number of filters
         num_filters <- reactiveVal(0)
-        prev_num_filters <- reactiveVal(0)
+        max_num_filters <- reactiveVal(0)
         
         # Disable the remove filter button if there are no filters
         observe({
@@ -117,53 +117,51 @@ filter_data_server <- function(id, dat) {
                 immediate = TRUE
             )
             
-            # Add one to the filter counter
-            num_filters(num_filters() + 1)
-        })
-        
-        # Update the choices of terms to search for based on selected column
-        observe({
-            if (num_filters() > prev_num_filters()) {
-                for (n in 1:num_filters()) {
-                    # Get the ids of the widgets for this div
-                    column_id <- paste("filter_column", n, sep = "_")
-                    values_id <- paste("filter_values", n, sep = "_")
+            # Only create a new observeEvent the first time filter n is created
+            if (n > max_num_filters()) {
+                # Update the available values when the selected column changes
+                observeEvent(input[[column_id]], {
+                    # Get the selected column name
+                    column_name <- input[[column_id]]
                     
-                    # Update the dropdown for selecting the values
-                    observeEvent(input[[column_id]], {
-                        if (!is.null(input[[column_id]]) &
-                            input[[column_id]] %in% colnames(dat())) {
-                            # Get the values from the selected column
-                            choices <- sort(unique(dat()[, input[[column_id]]]))
-                            
-                            # Split semicolon delimited character values
-                            if (is.character(choices)) {
-                                choices <-
-                                    sort(unique(unlist(strsplit(choices, ";"))))
-                            }
-                            
-                            # Update the dropdown menu
-                            updateSelectizeInput(
-                                session,
-                                values_id,
-                                choices = choices
-                            )
+                    # Make sure it's a valid column name
+                    if (column_name %in% colnames(dat())) {
+                        # Get the values from the selected column
+                        choices <- sort(unique(dat()[, column_name]))
+                        
+                        # Split semicolon delimited character values
+                        if (is.character(choices)) {
+                            choices <-
+                                sort(unique(unlist(strsplit(choices, ";"))))
                         }
-                    })
-                }
+                        
+                        # Update the dropdown menu
+                        updateSelectizeInput(
+                            session,
+                            values_id,
+                            choices = choices
+                        )
+                    }
+                })
             }
             
-            # Set the previous number of filters to the current number
-            prev_num_filters(num_filters())
+            # Add one to the filter counter
+            num_filters(num_filters() + 1)
+            
+            # Update the maximum number of filters if necessary
+            if (num_filters() > max_num_filters()) {
+                max_num_filters(num_filters())
+            }
         })
         
-        # Remove the last filter when the remove filter button is clicked
-        observeEvent(input$remove_filter, {
-            # Clear the input values or the app won't actually update :(
+        # Define a function to remove the last filter
+        remove_filter <- function() {
+            # Clear the column selection menu to force its observeEvent() to run
             updateSelectInput(
                 session,
-                paste("filter_values", num_filters(), sep = "_"),
-                choices = ""
+                paste("filter_column", num_filters(), sep = "_"),
+                choices = " ",
+                selected = " "
             )
             
             # Remove filter div
@@ -171,23 +169,17 @@ filter_data_server <- function(id, dat) {
             
             # Subtract one from the filter counter
             num_filters(num_filters() - 1)
+        }
+        
+        # Remove the last filter when the remove filter button is clicked
+        observeEvent(input$remove_filter, {
+            remove_filter()
         })
         
         # Remove all filters if dat changes
         observeEvent(dat(), {
             while (num_filters() > 0) {
-                # Clear the input values or the app won't actually update :(
-                updateSelectInput(
-                    session,
-                    paste("filter_values", num_filters(), sep = "_"),
-                    choices = ""
-                )
-                
-                # Remove filter div
-                removeUI(paste('#filter_div', num_filters(), sep = "_"))
-                
-                # Subtract one from the filter counter
-                num_filters(num_filters() - 1)
+                remove_filter()
             }
         })
         
@@ -205,11 +197,6 @@ filter_data_server <- function(id, dat) {
                 # Figure out the values to search for in this column
                 filter_values <-
                     input[[paste("filter_values", x, sep = "_")]]
-                
-                # Split values at newline characters
-                if (!is.null(filter_values)) {
-                    filter_values <- unlist(strsplit(filter_values, "\n"))
-                }
                 
                 # Add element to the list where name = column, value = values
                 if (length(filter_values > 0)) {
@@ -244,9 +231,11 @@ display_data_server <- function(id, filtered_dat) {
     moduleServer(id, function(input, output, session) {
         # Display the filtered dataset
         output$display_dataset <-
-            renderDataTable(filtered_dat(),
-                            # Add a scrollbar if the table is too wide (it is)
-                            options = list(scrollX = TRUE))
+            renderDataTable(
+                filtered_dat(),
+                # Add a scrollbar if the table is too wide (it is)
+                options = list(scrollX = TRUE)
+            )
     })
 }
 
