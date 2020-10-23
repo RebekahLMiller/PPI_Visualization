@@ -21,8 +21,10 @@ library("ggraph")
 #   must be one of ("line", "arc", NA)
 # arc_curvature: the edge curvature to use when the edge style is "arc"
 # plot_nodes: whether to plot the nodes (default: TRUE)
-# node_color:
-# node_label:
+# node_color: a data frame with three columns:
+#   column to color by, value in that column to color, color to use
+#   (default: NA)
+# node_label: the column to use to label the nodes (default: NA)
 plot_network <-
     function(dat_igraph, layout = "sphere", edge_style = "line",
              arc_curvature = 0.1, plot_nodes = TRUE, node_color = NA,
