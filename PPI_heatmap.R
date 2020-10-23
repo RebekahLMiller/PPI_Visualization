@@ -1,7 +1,7 @@
 ## File containing functions for generating heatmaps showing COF/TF PPIs
 
 
-## SET UP ----------------------------------------------------------------------
+# SET UP -----------------------------------------------------------------------
 
 
 # Load necessary libraries
@@ -10,7 +10,7 @@ library("tidyverse")
 library("reshape2")
 
 
-## DEFINE FUNCTIONS ------------------------------------------------------------
+# DEFINE FUNCTIONS -------------------------------------------------------------
 
 
 # Main function to plot heatmaps
@@ -59,6 +59,10 @@ plot_heatmap <-
                     by = list(dat_filtered[[columns]], dat_filtered[[rows]]),
                     FUN = length
                 )
+            
+            # Fix the column names of the new data frame
+            colnames(dat_aggregated) <-
+                make.unique(c(columns, rows, "number_interactions"))
         } else {
             # Take the average value in fill_var column
             dat_aggregated <- 
@@ -70,6 +74,10 @@ plot_heatmap <-
                         mean(as.numeric(as.character(x)))
                     }
                 )
+            
+            # Fix the column names of the new data frame
+            colnames(dat_aggregated) <-
+                make.unique(c(columns, rows, fill_var))
         }
         
         # Generate heatmap
@@ -140,53 +148,53 @@ filter_rows <- function(dat, filters) {
 generate_heatmap <-
     function(dat, cluster_cols, cluster_rows, plot_title, x_lab, y_lab,
              show_legend, legend_title, low_color, high_color) {
-        # Get the name of the column to use for determining fill color
-        fill_column <- names(dat)[3]
+        # Get the names of the columns of the data frame
+        col_names <- names(dat)
         
         # Change the column order if the columns should be clustered
-        if (cluster_cols & length(unique(dat$Group.1)) > 1) {
-            # Convert data frame to matrix format
+        if (cluster_cols & length(unique(dat[[col_names[1]]])) > 1) {
+            # Convert data frame to wide format
             dat_mat <-
-                dcast(dat, Group.1 ~ Group.2, value.var = fill_column) %>%
-                
+                dcast(dat, get(col_names[1]) ~ get(col_names[2]),
+                      value.var = col_names[3]) %>%
                 # Replace NAs with zeroes
                 replace(is.na(.), 0) %>%
-                
-                # Convert Group.1 column to row names
-                column_to_rownames("Group.1")
+                # Convert the first column to row names
+                column_to_rownames("get(col_names[1])")
             
             # Figure out column order using hierarchical clustering
             col_order <- hclust(dist(dat_mat))$order
             
-            # Convert Group.1 into a factor with levels in the clustered order
-            dat$Group.1 <-
-                factor(dat$Group.1, levels = rownames(dat_mat)[col_order])
+            # Convert column into a factor with levels in the clustered order
+            dat[[col_names[1]]] <-
+                factor(dat[[col_names[1]]],
+                       levels = rownames(dat_mat)[col_order])
         }
         
         # Change the row order if the rows should be clustered
-        if (cluster_rows & length(unique(dat$Group.2)) > 1) {
-            # Convert data frame to matrix format
+        if (cluster_rows & length(unique(dat[[col_names[2]]])) > 1) {
+            # Convert data frame to wide format
             dat_mat <-
-                dcast(dat, Group.2 ~ Group.1, value.var = fill_column) %>%
-                
+                dcast(dat, get(col_names[2]) ~ get(col_names[1]),
+                      value.var = col_names[3]) %>%
                 # Replace NAs with zeroes
                 replace(is.na(.), 0) %>%
-                
-                # Convert Group.2 column to row names
-                column_to_rownames("Group.2")
+                # Convert the first column to row names
+                column_to_rownames("get(col_names[2])")
             
             # Figure out row order using hierarchical clustering
             row_order <- hclust(dist(dat_mat))$order
             
-            # Convert Group.2 into a factor with levels in the clustered order
-            dat$Group.2 <-
-                factor(dat$Group.2, levels = rownames(dat_mat)[row_order])
+            # Convert column into a factor with levels in the clustered order
+            dat[[col_names[2]]] <-
+                factor(dat[[col_names[2]]],
+                       levels = rownames(dat_mat)[row_order])
         }
         
         # Start the plot
         heatmap_dat <-
-            ggplot(dat, aes(x = Group.1, y = Group.2,
-                            fill = !!as.symbol(fill_column))) +
+            ggplot(dat, aes(x = get(col_names[1]), y = get(col_names[2]),
+                            fill = get(col_names[3]))) +
             geom_tile(colour = "white")
         
         # Remove axis ticks and grid lines and set theme to black and white

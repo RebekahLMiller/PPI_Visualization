@@ -1,7 +1,7 @@
 ## File containing the shiny modules unique to the heatmap tab
 
 
-## GENERATE HEATMAP ------------------------------------------------------------
+# GENERATE HEATMAP -------------------------------------------------------------
 
 
 # Define the UI for the heatmap tab's plot generation
@@ -144,7 +144,7 @@ generate_heatmap_server <- function(id, dat, filters) {
 }
 
 
-## DOWNLOAD HEATMAP ------------------------------------------------------------
+# DOWNLOAD HEATMAP -------------------------------------------------------------
 
 
 # The UI for the heatmap tab's download section is defined in "reused_modules.R"
@@ -182,6 +182,107 @@ download_heatmap_server <- function(id, heatmap_plot) {
                         height = as.numeric(input$height),
                         units = "cm",
                         limitsize = FALSE
+                    )
+                }
+            )
+    })
+}
+
+
+# DOWNLOAD TABLE ---------------------------------------------------------------
+
+
+# Define the UI for the numeric heatmap table download section
+download_table_UI <- function(id) {
+    # Set the namespace
+    ns <- NS(id)
+    
+    # Download the table as a tsv file
+    tagList(
+        # Radio button to toggle between wide and long format
+        radioButtons(
+            ns("toggle_format"),
+            "Toggle table format",
+            choices = c("Long", "Wide"),
+            inline = TRUE
+        ),
+        
+        # Display a message saying the displayed table is just a preview
+        textOutput(ns("preview_text")),
+        
+        # Insert some space between the message and the table
+        br(),
+        
+        # Display the table
+        dataTableOutput(ns("display_table")),
+        
+        # Button to download the table
+        downloadButton(ns("download_table"))
+    )
+}
+
+# Define the server for the heatmap tab's download section
+download_table_server <- function(id, heatmap_plot) {
+    moduleServer(id, function(input, output, session) {
+        # Get the column names of the table to convert it to wide format
+        col_names <- reactive({colnames(heatmap_plot()$data)})
+        
+        # Convert the table to wide format
+        wide_table <- reactive({
+            # Convert to wide format
+            wide_table <- dcast(
+                heatmap_plot()$data,
+                get(col_names()[2]) ~ get(col_names()[1]),
+                value.var = col_names()[3]
+            )
+            
+            # Fix the column names
+            names(wide_table)[1] <- col_names()[2]
+            
+            # Return the wide format table
+            return(wide_table)
+        })
+        
+        # Toggle displayed table format based on radio button input
+        heatmap_table <- reactive({
+            switch(
+                input$toggle_format,
+                "Long" = heatmap_plot()$data,
+                "Wide" = wide_table()
+            )
+        })
+        
+        # Display a message saying the displayed table is just a preview
+        output$preview_text <-
+            renderText(
+                paste(
+                    "Note: Only the first 100 columns are displayed in wide",
+                    "format to reduce rendering time. If you need the whole",
+                    "table, download it using the button below the table."
+                )
+            )
+        
+        # Display the table
+        output$display_table <-
+            renderDataTable(
+                # Display a maximum of 100 columns so it doesn't take forever
+                heatmap_table()[, 1:min(100, ncol(heatmap_table()))],
+                # Add a scrollbar if the table is too wide
+                options = list(scrollX = TRUE)
+            )
+        
+        # Handle downloading the heatmap table as a tsv file
+        output$download_table <-
+            downloadHandler(
+                "heatmap_table.tsv",
+                function(file) {
+                    # Save the table as a tsv file
+                    write.table(
+                        heatmap_table(),
+                        file,
+                        quote = FALSE,
+                        row.names = FALSE,
+                        sep = "\t"
                     )
                 }
             )

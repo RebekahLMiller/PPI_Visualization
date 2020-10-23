@@ -1,7 +1,7 @@
 ## Script for running interactive PPI visualization app
 
 
-## SET UP ----------------------------------------------------------------------
+# SET UP -----------------------------------------------------------------------
 
 
 # Load necessary libraries
@@ -24,7 +24,7 @@ source("./network_modules.R", local = TRUE)
 source("./reused_modules.R", local = TRUE)
 
 
-## LOAD DATA -------------------------------------------------------------------
+# LOAD DATA --------------------------------------------------------------------
 
 
 # Load lists of COF/TF PPIs (expects tab separated values and headers)
@@ -80,13 +80,25 @@ ui <- navbarPage(
                 ),
                 
                 # Make a main panel to display the heatmap
-                mainPanel(
-                    # Plot the heatmap
-                    display_plot_UI("display_heatmap"),
+                mainPanel(tabsetPanel(
+                    # Make a tab to display the heatmap in plot format
+                    tabPanel(
+                        "Plot",
+                        
+                        # Plot the heatmap
+                        display_plot_UI("display_heatmap"),
+                        
+                        # Set up and download the heatmap as a pdf
+                        download_plot_UI("download_heatmap")
+                    ),
                     
-                    # Set up and download the heatmap as a pdf
-                    download_plot_UI("download_heatmap")
-                )
+                    # Make a tab to display the heatmap as a numeric table
+                    tabPanel(
+                        "Table",
+                        
+                        # Download the numeric table used to make the heatmap
+                        download_table_UI("download_table"))
+                ))
             )
         )
     ),
@@ -116,7 +128,7 @@ ui <- navbarPage(
 )
 
 
-## DEFINE SERVER ---------------------------------------------------------------
+# DEFINE SERVER ----------------------------------------------------------------
 
 
 server <- function(input, output, session) {
@@ -146,6 +158,9 @@ server <- function(input, output, session) {
     # Download the heatmap
     download_heatmap_server("download_heatmap", reactive(heatmap_plot()))
     
+    # Download the numeric table used to make the heatmap
+    download_table_server("download_table", reactive(heatmap_plot()))
+    
     # Make an igraph object for plotting the network
     dat_igraph <- reactive({
         extract_igraph(filtered_dat())
@@ -164,7 +179,7 @@ server <- function(input, output, session) {
 }
 
 
-## RUN APP ---------------------------------------------------------------------
+# RUN APP ----------------------------------------------------------------------
 
 
 shinyApp(ui, server)
