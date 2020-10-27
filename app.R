@@ -34,6 +34,9 @@ mouse_apid <-
     read.table("./data/mouse_APID_COF_TF.tsv", sep = "\t", header = TRUE)
 human_huri <-
     read.table("./data/human_HuRI_COF_TF.tsv", sep = "\t", header = TRUE)
+cofpendium <-
+    read.table("./data/COFpendium_full_annotated.tsv",
+               sep = "\t", header = TRUE)
 
 
 # DEFINE UI --------------------------------------------------------------------

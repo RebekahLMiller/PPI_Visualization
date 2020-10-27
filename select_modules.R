@@ -13,7 +13,7 @@ select_data_UI <- function(id) {
     selectInput(
         ns("select"),
         "Select a dataset",
-        choices = c("Human APID", "Human HuRI", "Mouse APID")
+        choices = c("Human APID", "Human HuRI", "Mouse APID", "COFpendium")
     )
 }
 
@@ -26,7 +26,8 @@ select_data_server <- function(id) {
                 input$select,
                 "Human APID" = human_apid,
                 "Human HuRI" = human_huri,
-                "Mouse APID" = mouse_apid
+                "Mouse APID" = mouse_apid,
+                "COFpendium" = cofpendium
             )
         })
         
