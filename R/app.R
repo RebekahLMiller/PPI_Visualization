@@ -4,124 +4,93 @@
 # SET UP -----------------------------------------------------------------------
 
 
-# Load necessary libraries
-library("shiny")
-library("shinyjs")
-library("colourpicker")
-library("DT")
-
-# Do not convert columns of strings to factors when reading tables
-options(stringsAsFactors = FALSE)
-
-# Source files with function definitions
-source("./PPI_heatmap.R", local = TRUE)
-source("./PPI_network.R", local = TRUE)
-
-# Source files with module definitions
-source("./select_modules.R", local = TRUE)
-source("./heatmap_modules.R", local = TRUE)
-source("./network_modules.R", local = TRUE)
-source("./reused_modules.R", local = TRUE)
-
-
-# LOAD DATA --------------------------------------------------------------------
-
-
-# Load lists of COF/TF PPIs (expects tab separated values and headers)
-human_apid <-
-    read.table("./data/human_APID_COF_TF.tsv", sep = "\t", header = TRUE)
-mouse_apid <-
-    read.table("./data/mouse_APID_COF_TF.tsv", sep = "\t", header = TRUE)
-human_huri <-
-    read.table("./data/human_HuRI_COF_TF.tsv", sep = "\t", header = TRUE)
-cofpendium <-
-    read.table("./data/COFpendium_full_annotated.tsv",
-               sep = "\t", header = TRUE)
+# Define the tidyverse pipe (%>%) so it can be used without attaching packages
+`%>%` <- magrittr::`%>%`
 
 
 # DEFINE UI --------------------------------------------------------------------
 
-
-ui <- navbarPage(
+runPPIApp <- function() {
+ui <- shiny::navbarPage(
     "PPI Visualization",
-    
+
     # Make a tab to select and filter the dataset
-    tabPanel(
+    shiny::tabPanel(
         "Select and Filter Data",
-        
-        fluidPage(
+
+        shiny::fluidPage(
             # Allow enabling/disabling of widgets
-            useShinyjs(),
-            
-            sidebarLayout(
+            shinyjs::useShinyjs(),
+
+            shiny::sidebarLayout(
                 # Make a sidebar to select dataset and add filters
-                sidebarPanel(
+                shiny::sidebarPanel(
                     # Select a dataset
                     select_data_UI("select_data"),
-                    
+
                     # Add filters
                     filter_data_UI("filter_data")
                 ),
-                
+
                 # Make a main panel to display the selected, filtered dataset
-                mainPanel(
+                shiny::mainPanel(
                     display_data_UI("display_data")
                 )
             )
         )
     ),
-    
+
     # Make a tab to generate heatmaps
-    tabPanel(
+    shiny::tabPanel(
         "Generate Heatmap",
-        
-        fluidPage(
-            sidebarLayout(
+
+        shiny::fluidPage(
+            shiny::sidebarLayout(
                 # Make a sidebar to generate a heatmap with specific settings
-                sidebarPanel(
+                shiny::sidebarPanel(
                     generate_heatmap_UI("generate_heatmap")
                 ),
-                
+
                 # Make a main panel to display the heatmap
-                mainPanel(tabsetPanel(
+                shiny::mainPanel(shiny::tabsetPanel(
                     # Make a tab to display the heatmap in plot format
-                    tabPanel(
+                    shiny::tabPanel(
                         "Plot",
-                        
+
                         # Plot the heatmap
                         display_plot_UI("display_heatmap"),
-                        
+
                         # Set up and download the heatmap as a pdf
                         download_plot_UI("download_heatmap")
                     ),
-                    
+
                     # Make a tab to display the heatmap as a numeric table
-                    tabPanel(
+                    shiny::tabPanel(
                         "Table",
-                        
+
                         # Download the numeric table used to make the heatmap
                         download_table_UI("download_table"))
                 ))
             )
         )
     ),
-    
+
     # Make a tab to generate network graphs
-    tabPanel(
+    shiny::tabPanel(
         "Generate Network",
-        
-        fluidPage(
-            sidebarLayout(
+
+        shiny::fluidPage(
+            shiny::sidebarLayout(
                 # Make a sidebar to generate a network with specific settings
-                sidebarPanel(
+                shiny::sidebarPanel(
                     generate_network_UI("generate_network")
                 ),
-                
+
                 # Make a main panel to display the heatmap
-                mainPanel(
+                shiny::mainPanel(
                     # Plot the heatmap
                     display_plot_UI("display_network"),
-                    
+
                     # Set up and download the heatmap as a pdf
                     download_plot_UI("download_network")
                 )
@@ -137,53 +106,54 @@ ui <- navbarPage(
 server <- function(input, output, session) {
     # Determine which dataset is selected
     dat <- select_data_server("select_data")
-    
+
     # Get a list of all the filters to apply to the datset
-    filters <- filter_data_server("filter_data", reactive(dat()))
-    
+    filters <- filter_data_server("filter_data", shiny::reactive(dat()))
+
     # Filter the dataset
-    filtered_dat <- reactive({
+    filtered_dat <- shiny::reactive({
         return(filter_rows(dat(), filters()))
     })
-    
+
     # Display the filtered dataset
-    display_data_server("display_data", reactive(filtered_dat()))
-    
+    display_data_server("display_data", shiny::reactive(filtered_dat()))
+
     # Generate the heatmap
     heatmap_plot <-
         generate_heatmap_server("generate_heatmap",
-                                reactive(dat()),
-                                reactive(filters()))
-    
+                                shiny::reactive(dat()),
+                                shiny::reactive(filters()))
+
     # Display the heatmap
-    display_plot_server("display_heatmap", reactive(heatmap_plot()))
-    
+    display_plot_server("display_heatmap", shiny::reactive(heatmap_plot()))
+
     # Download the heatmap
-    download_heatmap_server("download_heatmap", reactive(heatmap_plot()))
-    
+    download_heatmap_server("download_heatmap", shiny::reactive(heatmap_plot()))
+
     # Download the numeric table used to make the heatmap
-    download_table_server("download_table", reactive(heatmap_plot()))
-    
+    download_table_server("download_table", shiny::reactive(heatmap_plot()))
+
     # Make an igraph object for plotting the network
-    dat_igraph <- reactive({
+    dat_igraph <- shiny::reactive({
         extract_igraph(filtered_dat())
     })
-    
+
     # Generate the network plot
     network_plot <-
         generate_network_server("generate_network",
-                                reactive(dat_igraph()))
-    
+                                shiny::reactive(dat_igraph()))
+
     # Display the network plot
-    display_plot_server("display_network", reactive(network_plot()))
-    
+    display_plot_server("display_network", shiny::reactive(network_plot()))
+
     # Download the network plot
-    download_network_server("download_network", reactive(network_plot()))
+    download_network_server("download_network", shiny::reactive(network_plot()))
 }
 
 
 # RUN APP ----------------------------------------------------------------------
 
 
-shinyApp(ui, server)
+shiny::shinyApp(ui, server)
+}
 

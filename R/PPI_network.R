@@ -1,17 +1,7 @@
 ## File containing functions for generating network plots showing COF/TF PPIs
 
 
-## SET UP ----------------------------------------------------------------------
-
-
-# Load necessary libraries
-library("plyr")
-library("tidyverse")
-library("igraph")
-library("ggraph")
-
-
-## DEFINE FUNCTIONS ------------------------------------------------------------
+# DEFINE FUNCTIONS -------------------------------------------------------------
 
 
 # Main function to plot networks
@@ -30,55 +20,55 @@ plot_network <-
              arc_curvature = 0.1, plot_nodes = TRUE, node_color = NA,
              node_label = NA) {
         # Set all nodes to black initially
-        V(dat_igraph)$color <- "black"
-        
+        igraph::V(dat_igraph)$color <- "black"
+
         # Change colors of nodes listed in node_color data frame
         if (is.data.frame(node_color)) {
             lapply(1:nrow(node_color), function(x) {
                 # Find all nodes in dat_igraph that match the info in this row
                 node_rows <-
-                    which(vertex_attr(dat_igraph, node_color[x, 1])
+                    which(igraph::vertex_attr(dat_igraph, node_color[x, 1])
                           == node_color[x, 2])
-                
+
                 # Change the color for the matching nodes
-                V(dat_igraph)$color[node_rows] <<- node_color[x, 3]
+                igraph::V(dat_igraph)$color[node_rows] <<- node_color[x, 3]
             })
         }
-        
+
         # Start the plot
-        dat_network <- ggraph(dat_igraph, layout = layout)
-        
+        dat_network <- ggraph::ggraph(dat_igraph, layout = layout)
+
         # Add edges
         if (!is.na(edge_style)) {
             dat_network <- dat_network +
                 switch(
                     edge_style,
-                    "line" = geom_edge_link(),
-                    "arc" = geom_edge_arc(curvature = arc_curvature)
+                    "line" = ggraph::geom_edge_link(),
+                    "arc" = ggraph::geom_edge_arc(curvature = arc_curvature)
                 )
         }
-        
+
         # Add nodes
         if (plot_nodes) {
             dat_network <- dat_network +
-                geom_node_point(color = V(dat_igraph)$color)
+                ggraph::geom_node_point(color = igraph::V(dat_igraph)$color)
         }
-        
+
         # Add node labels
         if (!(is.na(node_label) | node_label == "None")) {
             dat_network <- dat_network +
-                geom_node_label(
-                    aes(label = replace_na(vertex_attr(dat_igraph, node_label),
-                                           "")),
-                    repel = TRUE
-                )
+                ggraph::geom_node_label(ggplot2::aes(label = replace_na(
+                    igraph::vertex_attr(dat_igraph, node_label),
+                    ""
+                )),
+                repel = TRUE)
         }
-        
+
         # Set theme to theme_void() to remove axes and background
-        dat_network <- dat_network + theme_void()
-        
+        dat_network <- dat_network + ggplot2::theme_void()
+
         # Maybe should add an optional legend here for the colors?
-        
+
         # Return the finished network plot
         return(dat_network)
     }
@@ -90,19 +80,19 @@ extract_igraph <- function(dat) {
     if (nrow(dat) == 0) {
         return()
     }
-    
+
     # Extract edge data frame
     edges <- extract_edges(dat)
-    
+
     # Extract node data frame
     nodes <- extract_nodes(dat)
-    
+
     # Generate igraph object
-    net <- graph_from_data_frame(edges, vertices = nodes)
-    
+    net <- igraph::graph_from_data_frame(edges, vertices = nodes)
+
     # Fix the name of the first node attribute
-    names(vertex_attr(net))[1] <- colnames(nodes)[1]
-    
+    names(igraph::vertex_attr(net))[1] <- colnames(nodes)[1]
+
     # Return igraph object
     return(net)
 }
@@ -112,17 +102,17 @@ extract_igraph <- function(dat) {
 extract_edges <- function(dat) {
     # Find columns whose names end in "_A" (these contain node information)
     nodes_a <- grep("_A", colnames(dat), fixed = TRUE)
-    
+
     # Find columns whose names end in "_B" (these contain node information)
     nodes_b <- grep("_B", colnames(dat), fixed = TRUE)
-    
+
     # Find remaining columns (these contain edge information)
     edge_cols <- setdiff(1:ncol(dat), nodes_a)
     edge_cols <- setdiff(edge_cols, nodes_b)
-    
+
     # Remove all node information columns except the first of each "_A" and "_B"
     edge_dat <- dat[c(nodes_a[1], nodes_b[1], edge_cols)]
-    
+
     # Return trimmed data frame
     return(edge_dat)
 }
@@ -132,10 +122,10 @@ extract_edges <- function(dat) {
 extract_nodes <- function(dat) {
     # Extract columns whose names end in "_A" (these contain node information)
     nodes_a <- dat[grep("_A", colnames(dat), fixed = TRUE)]
-    
+
     # Extract columns whose names end in "_B" (these contain node information)
     nodes_b <- dat[grep("_B", colnames(dat), fixed = TRUE)]
-    
+
     # Remove "_A" and "_B" from column names
     colnames(nodes_a) <-
         vapply(colnames(nodes_a), function(x) {
@@ -145,18 +135,18 @@ extract_nodes <- function(dat) {
         vapply(colnames(nodes_b), function(x) {
             return(substr(x, 1, nchar(x) - 2))
         }, character(1))
-    
+
     # Combine data frames of node A and node B information
-    nodes <- rbind.fill(nodes_a, nodes_b)
-    
+    nodes <- plyr::rbind.fill(nodes_a, nodes_b)
+
     # Remove duplicate rows from data frame of node information
-    nodes <- distinct(nodes)
-    
+    nodes <- dplyr::distinct(nodes)
+
     # Collapse rows so each node has only one row (adds a column at the front)
     nodes <- aggregate.data.frame(nodes,
                                   by = list(nodes[, 1]),
                                   FUN = collapse_rows)
-    
+
     # Return combined, deduplicated data frame (removing extra column at front)
     return(nodes[-1])
 }
@@ -166,12 +156,12 @@ extract_nodes <- function(dat) {
 collapse_rows <- function(x) {
     # Keep only one copy of each value in the list
     unique_x <- unique(x)
-    
+
     # Return NA instead of an empty string if unique_x contains only NA
     if (all(is.na(unique_x))) {
         return(NA)
     }
-    
+
     # Print values with a semicolon delimiter (removing NA values)
     return(paste(unique_x[!is.na(unique_x)], collapse = ";"))
 }

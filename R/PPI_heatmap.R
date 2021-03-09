@@ -1,15 +1,6 @@
 ## File containing functions for generating heatmaps showing COF/TF PPIs
 
 
-# SET UP -----------------------------------------------------------------------
-
-
-# Load necessary libraries
-library("plyr")
-library("tidyverse")
-library("reshape2")
-
-
 # DEFINE FUNCTIONS -------------------------------------------------------------
 
 
@@ -31,9 +22,9 @@ library("reshape2")
 # x_lab: the x axis label (default: no label)
 # y_lab: the y axis label (default: no label)
 # show_legend: whether or not to show the legend (default: TRUE)
-# legend_title: the title for the legend (default: NA)
-# low_color (default: lightgrey)
-# high_color (default: midnightblue)
+# legend_title: the title for the legend (default: no title)
+# low_color: the color at the low end of the gradient (default: lightgrey)
+# high_color: the color at the high end of the gradient (default: midnightblue)
 plot_heatmap <-
     function(dat, columns, rows, fill_var = NA, filters = NA,
              cluster_cols = FALSE, cluster_rows = FALSE, plot_title = NULL,
@@ -41,15 +32,15 @@ plot_heatmap <-
              low_color = "lightgrey", high_color = "midnightblue") {
         # Depending on which columns are selected, expand rows
         dat_expanded <- expand_rows(dat, columns, rows)
-        
+
         # Filter out unwanted rows
         dat_filtered <- filter_rows(dat_expanded, filters)
-        
+
         # Check if there are any rows left
         if (nrow(dat_filtered) == 0) {
             return()
         }
-        
+
         # Extract new data frame with column, row, and fill values
         if (is.na(fill_var)) {
             # Count number of times each pair of values to plot appears
@@ -59,13 +50,13 @@ plot_heatmap <-
                     by = list(dat_filtered[[columns]], dat_filtered[[rows]]),
                     FUN = length
                 )
-            
+
             # Fix the column names of the new data frame
             colnames(dat_aggregated) <-
                 make.unique(c(columns, rows, "number_interactions"))
         } else {
             # Take the average value in fill_var column
-            dat_aggregated <- 
+            dat_aggregated <-
                 aggregate(
                     dat_filtered[fill_var],
                     by = list(dat_filtered[[columns]], dat_filtered[[rows]]),
@@ -74,18 +65,18 @@ plot_heatmap <-
                         mean(as.numeric(as.character(x)))
                     }
                 )
-            
+
             # Fix the column names of the new data frame
             colnames(dat_aggregated) <-
                 make.unique(c(columns, rows, fill_var))
         }
-        
+
         # Generate heatmap
         dat_heatmap <-
             generate_heatmap(dat_aggregated, cluster_cols, cluster_rows,
                              plot_title, x_lab, y_lab,
                              show_legend, legend_title, low_color, high_color)
-        
+
         # Return heatmap
         return(dat_heatmap)
     }
@@ -96,11 +87,12 @@ plot_heatmap <-
 # Arguments are as explained for plot_heatmap()
 expand_rows <- function(dat, columns, rows) {
     # Separate rows based on variable to plot as columns
-    dat_expanded <- separate_rows(dat, !!as.symbol(columns), sep = ";")
-    
+    dat_expanded <- tidyr::separate_rows(dat, !!as.symbol(columns), sep = ";")
+
     # Separate rows based on variable to plot as rows
-    dat_expanded <- separate_rows(dat_expanded, !!as.symbol(rows), sep = ";")
-    
+    dat_expanded <-
+        tidyr::separate_rows(dat_expanded,!!as.symbol(rows), sep = ";")
+
     # Return expanded data frame
     return(dat_expanded)
 }
@@ -110,15 +102,15 @@ expand_rows <- function(dat, columns, rows) {
 filter_rows <- function(dat, filters) {
     # Initialize return value to be original data frame
     dat_filtered <- dat
-    
+
     # Return the original data frame if filters is NA
     if (all(is.na(filters))) {
         return(dat_filtered)
     }
-    
+
     # Remove columns to filter by that are not present in the data frame
     filters <- filters[names(filters) %in% colnames(dat_filtered)]
-    
+
     # Loop through the columns to filter by
     for (name in names(filters)) {
         # Check if this column contains characters
@@ -126,19 +118,23 @@ filter_rows <- function(dat, filters) {
             # Put together a regular expression containing all the search terms
             pattern <-
                 paste(paste0("(^|;)", filters[[name]], "($|;)"), collapse = "|")
-            
+
             # Check each cell in the column for the regular expression
             dat_filtered <-
-                filter(dat_filtered, str_detect(dat_filtered[[name]], pattern))
-            
+                dplyr::filter(dat_filtered,
+                       stringr::str_detect(dat_filtered[[name]], pattern))
+
         } else {
             # If this column is not character values, just check if the value
             #   for each row is in the list of values to include
             dat_filtered <-
-                filter(dat_filtered, !!as.symbol(name) %in% filters[[name]])
+                dplyr::filter(
+                    dat_filtered,
+                    !!as.symbol(name) %in% filters[[name]]
+                )
         }
     }
-    
+
     # Return filtered data frame
     return(dat_filtered)
 }
@@ -150,77 +146,83 @@ generate_heatmap <-
              show_legend, legend_title, low_color, high_color) {
         # Get the names of the columns of the data frame
         col_names <- names(dat)
-        
+
         # Change the column order if the columns should be clustered
         if (cluster_cols & length(unique(dat[[col_names[1]]])) > 1) {
             # Convert data frame to wide format
             dat_mat <-
-                dcast(dat, get(col_names[1]) ~ get(col_names[2]),
+                reshape2::dcast(dat, get(col_names[1]) ~ get(col_names[2]),
                       value.var = col_names[3]) %>%
                 # Replace NAs with zeroes
                 replace(is.na(.), 0) %>%
                 # Convert the first column to row names
-                column_to_rownames("get(col_names[1])")
-            
+                tibble::column_to_rownames("get(col_names[1])")
+
             # Figure out column order using hierarchical clustering
             col_order <- hclust(dist(dat_mat))$order
-            
+
             # Convert column into a factor with levels in the clustered order
             dat[[col_names[1]]] <-
                 factor(dat[[col_names[1]]],
                        levels = rownames(dat_mat)[col_order])
         }
-        
+
         # Change the row order if the rows should be clustered
         if (cluster_rows & length(unique(dat[[col_names[2]]])) > 1) {
             # Convert data frame to wide format
             dat_mat <-
-                dcast(dat, get(col_names[2]) ~ get(col_names[1]),
+                reshape2::dcast(dat, get(col_names[2]) ~ get(col_names[1]),
                       value.var = col_names[3]) %>%
                 # Replace NAs with zeroes
                 replace(is.na(.), 0) %>%
                 # Convert the first column to row names
-                column_to_rownames("get(col_names[2])")
-            
+                tibble::column_to_rownames("get(col_names[2])")
+
             # Figure out row order using hierarchical clustering
             row_order <- hclust(dist(dat_mat))$order
-            
+
             # Convert column into a factor with levels in the clustered order
             dat[[col_names[2]]] <-
                 factor(dat[[col_names[2]]],
                        levels = rownames(dat_mat)[row_order])
         }
-        
+
         # Start the plot
         heatmap_dat <-
-            ggplot(dat, aes(x = get(col_names[1]), y = get(col_names[2]),
-                            fill = get(col_names[3]))) +
-            geom_tile(colour = "white")
-        
+            ggplot2::ggplot(dat, ggplot2::aes(
+                x = get(col_names[1]),
+                y = get(col_names[2]),
+                fill = get(col_names[3])
+            )) +
+            ggplot2::geom_tile(colour = "white")
+
         # Remove axis ticks and grid lines and set theme to black and white
         heatmap_dat <- heatmap_dat +
-            theme_bw() +
-            theme(
-                axis.ticks = element_blank(),
-                axis.text.x = element_text(angle = 270, hjust = 0),
-                panel.grid.major = element_blank(),
-                panel.grid.minor = element_blank()
+            ggplot2::theme_bw() +
+            ggplot2::theme(
+                axis.ticks = ggplot2::element_blank(),
+                axis.text.x = ggplot2::element_text(angle = 270, hjust = 0),
+                panel.grid.major = ggplot2::element_blank(),
+                panel.grid.minor = ggplot2::element_blank()
             )
-        
+
         # Add axis labels and legend title
         heatmap_dat <- heatmap_dat +
-            labs(x = x_lab, y = y_lab, fill = legend_title, title = plot_title)
-        
+            ggplot2::labs(x = x_lab,
+                          y = y_lab,
+                          fill = legend_title,
+                          title = plot_title)
+
         # Set color scheme
         heatmap_dat <- heatmap_dat +
-            scale_fill_gradient(low = low_color, high = high_color)
-        
+            ggplot2::scale_fill_gradient(low = low_color, high = high_color)
+
         # Remove legend if show_legend is FALSE
         if (!show_legend) {
             heatmap_dat <- heatmap_dat +
-                guides(fill = FALSE)
+                ggplot2::guides(fill = FALSE)
         }
-        
+
         # Return the heatmap
         return(heatmap_dat)
     }
