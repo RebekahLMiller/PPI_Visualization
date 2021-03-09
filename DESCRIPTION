@@ -1,18 +1,17 @@
 Package: PPIVisualization
-Title: What the Package Does (One Line, Title Case)
+Title: COF/TF PPI Visualization App
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Rebekah",
+           family = "Miller",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "rm679@bu.edu")
+Description: An interactive app for visualizing COF/TF PPIs.
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    shiny,
+    shiny (>= 1.5.0),
     shinyjs,
     colourpicker,
     DT,
