@@ -26,15 +26,15 @@ ui <- shiny::navbarPage(
                 # Make a sidebar to select dataset and add filters
                 shiny::sidebarPanel(
                     # Select a dataset
-                    select_data_UI("select_data"),
+                    selectDatasetUI("select_data"),
 
                     # Add filters
-                    filter_data_UI("filter_data")
+                    filterDatasetUI("filter_data")
                 ),
 
                 # Make a main panel to display the selected, filtered dataset
                 shiny::mainPanel(
-                    display_data_UI("display_data")
+                    displayDatasetUI("display_data")
                 )
             )
         )
@@ -105,10 +105,10 @@ ui <- shiny::navbarPage(
 
 server <- function(input, output, session) {
     # Determine which dataset is selected
-    dat <- select_data_server("select_data")
+    dat <- selectDatasetServer("select_data")
 
-    # Get a list of all the filters to apply to the datset
-    filters <- filter_data_server("filter_data", shiny::reactive(dat()))
+    # Get a list of all the filters to apply to the dataset
+    filters <- filterDatasetServer("filter_data", shiny::reactive(dat()))
 
     # Filter the dataset
     filtered_dat <- shiny::reactive({
@@ -116,7 +116,7 @@ server <- function(input, output, session) {
     })
 
     # Display the filtered dataset
-    display_data_server("display_data", shiny::reactive(filtered_dat()))
+    displayDatasetServer("display_data", shiny::reactive(filtered_dat()))
 
     # Generate the heatmap
     heatmap_plot <-
@@ -155,5 +155,51 @@ server <- function(input, output, session) {
 
 
 shiny::shinyApp(ui, server)
+}
+
+
+runTestApp <- function() {
+    # Create a page to select, filter, and display a dataset
+    selectTabUI <- shiny::fluidPage(
+        shiny::sidebarLayout(
+
+            # Create the sidebar
+            shiny::sidebarPanel(
+                # Add a dropdown menu to select a dataset
+                selectDatasetUI("selectDataset"),
+
+                # Add buttons to filter the dataset
+                filterDatasetUI("filterDataset")
+            ),
+
+            # Create the main panel
+            shiny::mainPanel(
+                # Add a display of the selected, filtered dataset
+                displayDatasetUI("displayDataset")
+            )
+        )
+    )
+
+    selectTabServer <- function(input, output, session) {
+        # Get the selected dataset
+        dataset <-
+            selectDatasetServer("selectDataset")
+
+        # Apply filters to the selected dataset
+        filteredDataset <-
+            filterDatasetServer(
+                "filterDataset",
+                shiny::reactive(dataset())
+            )
+
+        # Display the filtered dataset
+        displayDatasetServer(
+            "displayDataset",
+            shiny::reactive(filteredDataset())
+        )
+    }
+
+    # Run the app
+    shiny::shinyApp(selectTabUI, selectTabServer)
 }
 
