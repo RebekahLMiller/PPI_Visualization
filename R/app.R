@@ -159,47 +159,35 @@ shiny::shinyApp(ui, server)
 
 
 runTestApp <- function() {
-    # Create a page to select, filter, and display a dataset
-    selectTabUI <- shiny::fluidPage(
-        shiny::sidebarLayout(
+    # Put together the UI for the app
+    ui <- shiny::navbarPage(
+        "PPI Visualization",
 
-            # Create the sidebar
-            shiny::sidebarPanel(
-                # Add a dropdown menu to select a dataset
-                selectDatasetUI("selectDataset"),
+        # Make a tab to select and filter the dataset
+        shiny::tabPanel(
+            "Select and Filter a Dataset",
 
-                # Add buttons to filter the dataset
-                filterDatasetUI("filterDataset")
-            ),
+            selectDatasetTabUI("selectDatasetTab")
+        ),
 
-            # Create the main panel
-            shiny::mainPanel(
-                # Add a display of the selected, filtered dataset
-                displayDatasetUI("displayDataset")
-            )
+        # Make a tab to generate and display a heatmap
+        shiny::tabPanel(
+            "Generate Heatmap"
+
+            # generateHeatmapTabUI("generateHeatmapTab")
         )
     )
 
-    selectTabServer <- function(input, output, session) {
-        # Get the selected dataset
-        dataset <-
-            selectDatasetServer("selectDataset")
+    # Define the server logic
+    server <- function(input, output, session) {
+        # Get the filtered dataset
+        filteredDataset <- selectDatasetTabServer("selectDatasetTab")
 
-        # Apply filters to the selected dataset
-        filteredDataset <-
-            filterDatasetServer(
-                "filterDataset",
-                shiny::reactive(dataset())
-            )
-
-        # Display the filtered dataset
-        displayDatasetServer(
-            "displayDataset",
-            shiny::reactive(filteredDataset())
-        )
+        # Generate a heatmap
+        # generateHeatmapTabServer("generateHeatmapTab")
     }
 
     # Run the app
-    shiny::shinyApp(selectTabUI, selectTabServer)
+    shiny::shinyApp(ui, server)
 }
 
