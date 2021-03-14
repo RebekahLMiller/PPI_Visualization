@@ -5,15 +5,17 @@
 
 
 selectDatasetUI <- function(id) {
+    # Set the namespace
+    ns <- shiny::NS(id)
+
     # Create a dropdown menu to select a dataset
     shiny::selectInput(
-        NS(id, "select"),
+        ns("select"),
         label = "Select a dataset",
         choices = c(
-            "Human APID (old)",
             "Human APID",
             "Human BioGRID",
-            "COFpendium"
+            "Test List"
         )
     )
 }
@@ -28,10 +30,9 @@ selectDatasetServer <- function(id) {
         shiny::reactive({
             switch(
                 input$select,
-                "Human APID (old)" = human_apid_old,
                 "Human APID" = human_apid,
                 "Human BioGRID" = human_biogrid,
-                "COFpendium" = cofpendium
+                "Test List" = testPPIList
             )
         })
     })

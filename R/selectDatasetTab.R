@@ -5,6 +5,9 @@
 
 
 selectDatasetTabUI <- function(id) {
+    # Set the namespace
+    ns <- shiny::NS(id)
+
     # Create a page with a sidebar layout
     shiny::fluidPage(
         shiny::sidebarLayout(
@@ -12,16 +15,19 @@ selectDatasetTabUI <- function(id) {
             # Create the sidebar
             shiny::sidebarPanel(
                 # Add a dropdown menu to select a dataset
-                selectDatasetUI(NS(id, "selectDataset")),
+                selectDatasetUI(ns("selectDataset")),
 
                 # Add a section to filter the dataset
-                filterDatasetUI(NS(id, "filterDataset"))
+                filterDatasetUI(ns("filterDataset"))
             ),
 
             # Create the main panel
             shiny::mainPanel(
                 # Add a display of the selected, filtered dataset
-                displayDatasetUI(NS(id, "displayDataset"))
+                displayTableUI(ns("displayDataset")),
+
+                # Download the table as a text file
+                downloadTableUI(ns("downloadDataset"))
             )
         )
     )
@@ -42,7 +48,14 @@ selectDatasetTabServer <- function(id) {
             filterDatasetServer("filterDataset", dataset)
 
         # Display the filtered dataset
-        displayDatasetServer("displayDataset", filteredDataset)
+        displayTableServer("displayDataset", filteredDataset)
+
+        # Download the filtered dataset
+        downloadTableServer(
+            "downloadDataset",
+            filteredDataset,
+            "filtered_PPI_list.tsv"
+        )
 
         # Return the filtered dataset
         return(filteredDataset)

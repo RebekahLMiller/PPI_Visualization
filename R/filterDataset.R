@@ -5,27 +5,30 @@
 
 
 filterDatasetUI <- function(id) {
+    # Set the namespace
+    ns <- shiny::NS(id)
+
     shiny::tagList(
         # Create a checkbox to determine whether the filters are displayed
         shiny::checkboxInput(
-            NS(id, "displayFilters"),
+            ns("displayFilters"),
             label = "Display filtering options?"
         ),
 
-        # Only show this panel if the displayFilters checkbox is checked
-        conditionalPanel(
+        # Show this panel only if the displayFilters checkbox is checked
+        shiny::conditionalPanel(
             condition = "input.displayFilters == 1",
 
             # Create a series of checkboxes to select the columns to filter by
             shiny::checkboxGroupInput(
-                NS(id, "selectColumns"),
+                ns("selectColumns"),
                 label = "Select the columns to filter by",
                 choices = NULL,
                 selected = NULL
             ),
 
             # Set the namespace
-            ns = NS(id)
+            ns = shiny::NS(id)
         )
     )
 }
@@ -66,21 +69,17 @@ filterDatasetServer <- function(id, dataset) {
 
         # Add a filter section for each newly selected column
         shiny::observeEvent(selectedColumns$toAdd, {
-            for (addColumn in selectedColumns$toAdd) {
-                addFilter(id, session, addColumn, selectedColumns, dataset())
-            }
+            addFilters(selectedColumns, dataset(), session)
         })
 
         # Remove the filter section for each newly unselected column
         shiny::observeEvent(selectedColumns$toRemove, {
-            for (removeColumn in selectedColumns$toRemove) {
-                removeFilter(id, session, removeColumn, selectedColumns)
-            }
+            removeFilters(selectedColumns, session)
         })
 
         # Filter the dataset based on the currently active filter columns
         filteredDataset <- shiny::reactive({
-            return(filterDataset(session, input, dataset(), selectedColumns))
+            return(filterDataset(dataset(), input))
         })
 
         # Return the filtered dataset
@@ -94,71 +93,66 @@ filterDatasetServer <- function(id, dataset) {
 
 # Helper function to add a filter section when a column checkbox is clicked
 # Inputs:
-#   id: the module ID string to be namespaced
-#   session: the shiny session (used for namespacing)
-#   addColumn: the name of the column to add a filter section for
 #   selectedColumns: the reactive list tracking which columns are selected
-#   dataset: the reactive dataset to filter
-addFilter <- function(id, session, addColumn, selectedColumns, dataset) {
+#   dataset: the dataset to filter
+#   session: the shiny session (used for namespacing)
+addFilters <- function(selectedColumns, dataset, session) {
     # Set the namespace
     ns <- session$ns
 
-    # Insert a new UI element to select terms to filter
-    shiny::insertUI(
-        selector = paste0("#", ns("selectColumns")),
-        where = "afterEnd",
-        ui = selectizeInput(
-            ns(paste0(addColumn, "Filter")),
-            label = paste("Select the values to filter by in", addColumn),
-            choices = sort(unique(dataset[, addColumn])),
-            multiple = TRUE
+    for (addColumn in selectedColumns$toAdd) {
+        # Insert a new UI element to select terms to filter
+        shiny::insertUI(
+            selector = paste0("#", ns("selectColumns")),
+            where = "afterEnd",
+            ui = selectizeInput(
+                ns(paste0(addColumn, "Filter")),
+                label = paste("Select the values to filter by in", addColumn),
+                choices = sort(unique(dataset[, addColumn])),
+                multiple = TRUE
+            )
         )
-    )
 
-    # Move the column name from toAdd to selected
-    selectedColumns$toAdd <-
-        selectedColumns$toAdd[selectedColumns$toAdd != addColumn]
-    selectedColumns$selected <-
-        append(selectedColumns$selected, addColumn)
+        # Move the column name from toAdd to selected
+        selectedColumns$toAdd <-
+            selectedColumns$toAdd[selectedColumns$toAdd != addColumn]
+        selectedColumns$selected <-
+            append(selectedColumns$selected, addColumn)
+    }
 }
 
-# Helper function to remove a filter section when a column checkbox is unclicked
+# Helper function to remove filter sections when column checkboxes are unclicked
 # Inputs:
-#   id: the module ID string to be namespaced
-#   session: the shiny session (used for namespacing)
-#   removeColumn: the name of the column to remove the filter section for
 #   selectedColumns: the reactive list tracking which columns are selected
-removeFilter <- function(id, session, removeColumn, selectedColumns) {
+#   session: the shiny session (used for namespacing)
+removeFilters <- function(selectedColumns, session) {
     # Set the namespace
     ns <- session$ns
 
-    # Remove the UI element to select terms to filter
-    shiny::removeUI(
-        paste0("div:has(>> #", ns(paste0(removeColumn, "Filter")), ")")
-    )
+    for (removeColumn in selectedColumns$toRemove) {
+        # Remove the UI element to select terms to filter
+        shiny::removeUI(
+            paste0("div:has(>> #", ns(paste0(removeColumn, "Filter")), ")")
+        )
 
-    # Remove the column name from toRemove and selected
-    selectedColumns$toRemove <-
-        selectedColumns$toRemove[selectedColumns$toRemove != removeColumn]
-    selectedColumns$selected <-
-        selectedColumns$selected[selectedColumns$selected != removeColumn]
+        # Remove the column name from toRemove and selected
+        selectedColumns$toRemove <-
+            selectedColumns$toRemove[selectedColumns$toRemove != removeColumn]
+        selectedColumns$selected <-
+            selectedColumns$selected[selectedColumns$selected != removeColumn]
+    }
 }
 
 # Helper function to apply the selected filters to the selected dataset
 # Inputs:
-#   session: the shiny session (used for namespacing)
-#   input: the user inputs
 #   dataset: the selected, unfiltered dataset
-#   selectedColumns: the reactive list tracking which columns are selected
-filterDataset <- function(session, input, dataset, selectedColumns) {
-    # Set the namespace
-    ns <- session$ns
-
+#   input: the user inputs
+filterDataset <- function(dataset, input) {
     # Start with the unfiltered dataset
     filteredDataset <- dataset
 
     # Loop through the columns to filter the dataset by
-    for (filterColumn in selectedColumns$selected) {
+    for (filterColumn in input$selectColumns) {
         # Skip filtering by this column if it's not in the dataset
         # (This will happen right after the selected dataset changes)
         if (!(filterColumn %in% colnames(filteredDataset))) {
