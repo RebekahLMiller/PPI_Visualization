@@ -12,11 +12,12 @@ Another option for running RStudio on the SCC is to open a terminal window and t
 
 ## Installation
 
-Open a terminal window, navigate to the directory in which you want to install the app, and run `git clone https://github.com/RebekahLMiller/PPI_Visualization.git` to make a copy of the repository in that directory. Then start an RStudio session and navigate to the new repository directory and open the "PPIVisualization.Rproj" file. A pop-up will ask you to confirm that you want to open that project. Click "Yes" and the RStudio session will reload. Then run the following two commands to load the correct versions of all the required packages. This may take a while the first time.
+Open a terminal window, navigate to the directory in which you want to install the app, and run `git clone https://github.com/RebekahLMiller/PPI_Visualization.git` to make a copy of the repository in that directory. Then start an RStudio session and navigate to the new repository directory and open the "PPIVisualization.Rproj" file. A pop-up will ask you to confirm that you want to open that project. Click "Yes" and the RStudio session will reload. Then run the following commands to load the correct versions of all the required packages. This may take a while the first time.
 
 ```
+install.packages("renv")    # You only need to run this once
 renv::restore()
 devtools::load_all()
 ```
 
-After running these two commands, the app can be launched by running the command `runPPIApp()`.
+After running these three commands, the app can be launched with the command `runPPIApp()`.
